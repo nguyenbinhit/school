@@ -1,0 +1,8 @@
+CÁC URL
+
+    * url login *
+
+        http://localhost/school/index.php?controller=login&action=index
+
+    * admin *
+    
