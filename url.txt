@@ -1,8 +1,9 @@
 CÁC URL
 
-    * url login *
+    *login*
+        http://localhost/school/index.php?controller=login&action=index      
 
-        http://localhost/school/index.php?controller=login&action=index
 
-    * admin *
+    *dashboard*
+        http://localhost/school/index.php?controller=admin&action=index
     
