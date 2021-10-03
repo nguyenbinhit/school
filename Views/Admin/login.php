@@ -7,7 +7,7 @@
 </head>
 <body>
     <div class="container">
-        <form action="<?php echo SITE_URL ?>index.php?controller=login&action=loginadmin" class="form-login" method="post">
+        <form action="<?php echo SITE_URL ?>index.php?controller=admin&action=loginadmin" class="form-login" method="post">
             <h1>Đăng nhập</h1>
             <h4>Xin chào! Hãy bắt đầu nào</h4>
             <div class="form-text">

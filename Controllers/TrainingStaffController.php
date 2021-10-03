@@ -1,11 +1,16 @@
 <?php
-    class LoginController {
+    class TrainingStaffController {
         public function index()
         {
-            include_once "Views/LoginLogout/Login.php";
+            include_once "Views/TrainingStaff/index.php";
         }
 
-        public function loginadmin()
+        public function viewlogin()
+        {
+            include_once "Views/TrainingStaff/login.php";
+        }
+
+        public function login()
         {
             $data = [
                 'email'    => postInput("email"),
@@ -29,20 +34,20 @@
 
                 if(empty($error)) 
                 {
-                    $acconunt = new AdminModel();
+                    $training = new TrainingStaffModel();
 
                     // gửi và nhận lại dữ liệu trả về từ database
-                    $is_check = $acconunt->login($data['email'], $data['password']);
+                    $is_check = $training->login($data['email'], $data['password']);
 
                     if(is_object($is_check) && $is_check->id > 0) 
                     {
                         //check password and email
-                        if($is_check->admin_password === $data['password'] && $is_check->admin_email == $data['email']) { 
+                        if($is_check->training_staff_password === $data['password'] && $is_check->training_staff_email == $data['email']) { 
                             
-                            $_SESSION['admin_email'] = $is_check->admin_email;
+                            $_SESSION['admin_email'] = $is_check->training_staff_email;
                             $_SESSION['admin_id'] = $is_check->id;
 
-                            // trả về trang tổng nếu tài khoản đăng nhập là admin có quyền cao nhất
+                            // trả về trang tổng 
                             $domain =  SITE_URL."index.php?controller=admin&action=index";
                             header("Location: $domain");
                             exit;
@@ -58,5 +63,4 @@
                 }
             }
         }
-
     }

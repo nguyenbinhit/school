@@ -18,11 +18,16 @@ include_once "models/Database.php";
 include_once "models/Function.php";
 
 // nạp các controller vào trong index.php
-include_once "controllers/LoginController.php";
 include_once "controllers/AdminController.php";
+include_once "controllers/TrainingStaffController.php";
+include_once "controllers/TrainerController.php";
+include_once "controllers/TraineeController.php";
 
 // nạp tiếp các model
 include_once "models/AdminModel.php";
+include_once "models/TrainingStaffModel.php";
+include_once "models/TrainerModel.php";
+include_once "models/TraineeModel.php";
 
 // nạp tiếp router.php
 include_once "router.php";

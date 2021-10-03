@@ -1,16 +1,16 @@
 <?php
-    class AdminController {
+    class TraineeController {
         public function index()
         {
-            include_once "Views/Admin/index.php";
+            include_once "Views/Trainee/index.php";
         }
 
         public function viewlogin()
         {
-            include_once "Views/Admin/login.php";
+            include_once "Views/Trainee/login.php";
         }
 
-        public function loginadmin()
+        public function login()
         {
             $data = [
                 'email'    => postInput("email"),
@@ -34,20 +34,20 @@
 
                 if(empty($error)) 
                 {
-                    $acconunt = new AdminModel();
+                    $trainee = new TraineeModel();
 
                     // gửi và nhận lại dữ liệu trả về từ database
-                    $is_check = $acconunt->login($data['email'], $data['password']);
+                    $is_check = $trainee->login($data['email'], $data['password']);
 
                     if(is_object($is_check) && $is_check->id > 0) 
                     {
                         //check password and email
-                        if($is_check->admin_password === $data['password'] && $is_check->admin_email == $data['email']) { 
+                        if($is_check->trainee_password === $data['password'] && $is_check->trainee_email == $data['email']) { 
                             
-                            $_SESSION['admin_email'] = $is_check->admin_email;
+                            $_SESSION['admin_email'] = $is_check->trainee_email;
                             $_SESSION['admin_id'] = $is_check->id;
 
-                            // trả về trang tổng nếu tài khoản đăng nhập là admin có quyền cao nhất
+                            // trả về trang tổng 
                             $domain =  SITE_URL."index.php?controller=admin&action=index";
                             header("Location: $domain");
                             exit;
