@@ -10,7 +10,6 @@
 // khai báo hằng số url của ứng dụng
 // tên miền của ứng dụng này
 define("SITE_URL", "http://localhost/school/");
-session_status();
 // nên nạp đầu tiên
 include_once "models/Database.php";
 

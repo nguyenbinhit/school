@@ -2,12 +2,10 @@
 class Router {
     public function run() {
         // khai báo 1 controller mặc định
-        session_status();
-
-        $defaultController = "login";
+        $defaultController = "base";
 
         // khai báo 1 method mặc định sẽ được chạy trong controller
-        $defaultAction = "login";
+        $defaultAction = "index";
 
         // $_REQUEST = $_POST + $_GET
         $controller = isset($_REQUEST["controller"]) && ($_REQUEST["controller"]) ? $_REQUEST["controller"] : $defaultController;
