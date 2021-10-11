@@ -37,7 +37,7 @@
                     $training = new TrainingStaffModel();
 
                     // gửi và nhận lại dữ liệu trả về từ database
-                    $is_check = $training->login($data['email'], $data['password']);
+                    $is_check = $training->fetchLogin($data['email'], $data['password']);
 
                     if(is_object($is_check) && $is_check->id > 0) 
                     {

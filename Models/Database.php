@@ -22,7 +22,7 @@
         public function __construct()
         {
             /**
-             * !$this->connection
+             * !$this->conn
              * Khi chưa có kết nối đến CSDL
              */
             if (!$this->conn) {

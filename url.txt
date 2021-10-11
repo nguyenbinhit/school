@@ -1,8 +1,10 @@
 CÁC URL
 
+    *trang đầu*
+
+        http://localhost/school/index.php?controller=base&action=index
+
     *login*
-        http://localhost/school/index.php?controller=admin&action=viewlogin
-        
         http://localhost/school/index.php?controller=trainingstaff&action=viewlogin
 
         http://localhost/school/index.php?controller=trainer&action=viewlogin

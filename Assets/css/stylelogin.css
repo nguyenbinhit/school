@@ -1,96 +1,92 @@
-:root {
-    --bg1: #9b59b6;
-    --bg2: #3498db;
-    --text: #26ade4;
-}
+/* The Modal (background) */
 
-* {
-    margin: 0;
-    padding: 0;
-    outline: none;
-}
-
-a {
-    text-decoration: none;
-}
-
-.container {
-    width: 100vw;
-    height: 100vh;
-    background: linear-gradient(to bottom right, var(--bg1), var(--bg2));
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
-.form-login {
-    width: 300px;
-    height: 500px;
-    background: #ffffff;
-    border-radius: 10px;
-    padding: 40px 30px;
-}
-
-.form-login h1 {
-    color: #3498db;
-}
-
-.form-login h4 {
-    margin-bottom: 50px;
-    color: #26ade4;
-}
-
-.form-login button {
-    height: 35px;
-    width: 100%;
-    margin-bottom: 30px;
-    background: linear-gradient(120deg, var(--bg1), var(--bg2), var(--bg1));
-    border: none;
-    color: #ffffff;
-    border-radius: 5px;
-    background-size: 200%;
-    transition: 1s;
-}
-
-.form-login button:hover {
-    background-position: right;
-}
-
-.form-text {
-    margin-bottom: 40px;
-    position: relative;
-}
-
-.form-text input {
-    width: 100%;
-    height: 35px;
-    border: none;
-    border-bottom: 2px solid #cccccc;
-    cursor: pointer;
-    padding-left: 12px;
-}
-
-.form-text label {
-    position: absolute;
-    left: 12px;
-    bottom: 15px;
-    transition: 1s;
-}
-
-.form-text label.focus {
-    transform: translateY(-20px);
-}
-
-.form-login .error {
-    color: red;
-    position: absolute;
-    top: 20px;
-    left: 12px;
-    bottom: 12px;
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
     z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+    padding-top: 60px;
 }
 
-.form-text:hover .error {
-    visibility: hidden;
+
+/* Modal Content/Box */
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto;
+    /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 45%;
+    /* Could be more or less, depending on screen size */
+}
+
+
+/* The Close Button (x) */
+
+.close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: red;
+    cursor: pointer;
+}
+
+
+/* Add Zoom Animation */
+
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+    from {
+        -webkit-transform: scale(0)
+    }
+    to {
+        -webkit-transform: scale(1)
+    }
+}
+
+@keyframes animatezoom {
+    from {
+        transform: scale(0)
+    }
+    to {
+        transform: scale(1)
+    }
+}
+
+
+/* Change styles for span and cancel button on extra small screens */
+
+@media screen and (max-width: 300px) {
+    span.psw {
+        display: block;
+        float: none;
+    }
+    .cancelbtn {
+        width: 100%;
+    }
 }
