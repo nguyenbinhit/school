@@ -36,8 +36,9 @@
         </div>
 
         <!-- Content -->
-        <div class="container py-5 py-sm-7 mt-5">
-            <a class="d-flex justify-content-center mb-5 mt-5" href="index.html">
+        <div class="container py-5 py-sm-7 mt-5 mb-5">
+            <a class="d-flex justify-content-center mb-5 mt-5 mb-5" href="index.html">
+                <!-- Logo -->
                 <img class="z-index-2" src="<?php echo assets_css() ?>dashboard\img\Logo-FU-01.png" alt="FPT">
             </a>
 
@@ -55,7 +56,7 @@
                             <!-- Login Training Staff -->
                             <button onclick="document.getElementById('trainingstaff').style.display='block'" class="btn btn-lg btn-block btn-primary">Sign in Manament</button>
 
-                            <div id="trainingstaff" class="modal">
+                            <div id="trainingstaff" class="modal mt-8">
                                 <!-- Form -->
                                 <form class="js-validate modal-content animate" action="<?php echo SITE_URL ?>index.php?controller=trainingStaff&action=login" method="POST" style="padding: 20px;">
 
@@ -76,7 +77,7 @@
                             <!-- Login Trainer -->
                             <button onclick="document.getElementById('trainer').style.display='block'" class="btn btn-lg btn-block btn-primary">Sign in Trainer</button>
 
-                            <div id="trainer" class="modal">
+                            <div id="trainer" class="modal mt-8">
                                 <!-- Form -->
                                 <form class="js-validate modal-content animate" action="<?php echo SITE_URL ?>index.php?controller=trainer&action=login" method="POST" style="padding: 20px;">
 
@@ -97,7 +98,7 @@
                             <!-- Login Trainer -->
                             <button onclick="document.getElementById('trainee').style.display='block'" class="btn btn-lg btn-block btn-primary">Sign in Trainee</button>
 
-                            <div id="trainee" class="modal">
+                            <div id="trainee" class="modal mt-8">
                                 <!-- Form -->
                                 <form class="js-validate modal-content animate" action="<?php echo SITE_URL ?>index.php?controller=trainee&action=login" method="POST" style="padding: 20px;">
 
