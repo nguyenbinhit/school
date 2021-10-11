@@ -1,7 +1,6 @@
 CÁC URL
 
     *login*
-
         http://localhost/school/index.php?controller=base&action=index
 
     *dashboard*
