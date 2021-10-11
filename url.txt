@@ -6,3 +6,15 @@ CÁC URL
     *dashboard*
         http://localhost/school/index.php?controller=base&action=dashboard
     
+    *training staff*
+        index: 
+            http://localhost/school/index.php?controller=trainingStaff&action=index
+
+        create:
+            http://localhost/school/index.php?controller=trainingStaff&action=create
+
+        edit:
+            http://localhost/school/index.php?controller=trainingStaff&action=edit&id=$id
+        
+        delete:
+            http://localhost/school/index.php?controller=trainingStaff&action=delete&id=$id
