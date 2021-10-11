@@ -5,5 +5,5 @@ CÁC URL
         http://localhost/school/index.php?controller=base&action=index
 
     *dashboard*
-        http://localhost/school/index.php?controller=admin&action=index
+        http://localhost/school/index.php?controller=base&action=dashboard
     

@@ -40,7 +40,7 @@
                         $_SESSION['admin_id'] = $is_check->id;
 
                         // trả về trang tổng 
-                        $domain =  SITE_URL."index.php?controller=admin&action=index";
+                        $domain =  SITE_URL."index.php?controller=base&action=dashboard";
                         header("Location: $domain");
                         exit;
                     }

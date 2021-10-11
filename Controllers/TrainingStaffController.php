@@ -39,7 +39,7 @@ class TrainingStaffController
                     $_SESSION['level'] = $is_check->level;
 
                     // trả về trang tổng 
-                    $domain =  SITE_URL . "index.php?controller=trainingStaff&action=index";
+                    $domain =  SITE_URL."index.php?controller=base&action=dashboard";
                     header("Location: $domain");
                     exit;
 
