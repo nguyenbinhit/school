@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Title -->
-    <title>Basic Sign In</title>
+    <title>Sign In</title>
 
     <!-- Font -->
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
@@ -58,11 +58,11 @@
                             <div id="trainingstaff" class="modal">
                                 <!-- Form -->
                                 <form class="js-validate modal-content animate" action="<?php echo SITE_URL ?>index.php?controller=trainingStaff&action=login" method="POST" style="padding: 20px;">
-                                    
+
                                     <span onclick="document.getElementById('trainingstaff').style.display='none'" class="close">&times;</span>
 
                                     <!-- Form Group -->
-                                    <?php include __DIR__. "/login.php"; ?>
+                                    <?php include __DIR__ . "/login.php"; ?>
                                     <!-- End Form Group -->
 
                                     <button type="submit" class="btn btn-lg btn-block btn-primary">Sign in Training Staff</button>
@@ -72,18 +72,18 @@
                             <!-- End Login Training Staff -->
 
                             <div class="m-5"></div>
-                            
+
                             <!-- Login Trainer -->
                             <button onclick="document.getElementById('trainer').style.display='block'" class="btn btn-lg btn-block btn-primary">Sign in Trainer</button>
 
                             <div id="trainer" class="modal">
                                 <!-- Form -->
                                 <form class="js-validate modal-content animate" action="<?php echo SITE_URL ?>index.php?controller=trainer&action=login" method="POST" style="padding: 20px;">
-                                    
+
                                     <span onclick="document.getElementById('trainer').style.display='none'" class="close">&times;</span>
 
                                     <!-- Form Group -->
-                                    <?php include __DIR__. "/login.php" ?>
+                                    <?php include __DIR__ . "/login.php" ?>
                                     <!-- End Form Group -->
 
                                     <button type="submit" class="btn btn-lg btn-block btn-primary">Sign in Trainer</button>
@@ -93,18 +93,18 @@
                             <!-- End Login Trainer -->
 
                             <div class="m-5"></div>
-                            
+
                             <!-- Login Trainer -->
                             <button onclick="document.getElementById('trainee').style.display='block'" class="btn btn-lg btn-block btn-primary">Sign in Trainee</button>
 
                             <div id="trainee" class="modal">
                                 <!-- Form -->
                                 <form class="js-validate modal-content animate" action="<?php echo SITE_URL ?>index.php?controller=trainee&action=login" method="POST" style="padding: 20px;">
-                                    
+
                                     <span onclick="document.getElementById('trainee').style.display='none'" class="close">&times;</span>
 
                                     <!-- Form Group -->
-                                    <?php include __DIR__. "/login.php"; ?>
+                                    <?php include __DIR__ . "/login.php"; ?>
                                     <!-- End Form Group -->
 
                                     <button type="submit" class="btn btn-lg btn-block btn-primary">Sign in Trainer</button>
@@ -167,13 +167,11 @@
                 modal.style.display = "none";
             }
         };
-
-
     </script>
 
     <!-- IE Support -->
     <script>
-        if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) document.write('<script src="./<?php echo assets_css() ?>dashboard/vendor/babel-polyfill/polyfill.min.js"><\/script>');
+        if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) document.write('<script src="<?php echo assets_css() ?>dashboard/vendor/babel-polyfill/polyfill.min.js"><\/script>');
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
