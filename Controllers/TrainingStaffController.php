@@ -33,23 +33,16 @@ class TrainingStaffController
                 $is_check = $training->fetchLogin($data['email'], $data['password']);
 
                 if (is_object($is_check) && $is_check->id > 0) {
-                    //check password and email
-                    if ($is_check->training_staff_password === $data['password'] && $is_check->training_staff_email == $data['email']) {
+                    
+                    $_SESSION['admin_email'] = $is_check->training_staff_email;
+                    $_SESSION['admin_id'] = $is_check->id;
+                    $_SESSION['level'] = $is_check->level;
 
-                        $_SESSION['admin_email'] = $is_check->training_staff_email;
-                        $_SESSION['admin_id'] = $is_check->id;
-                        $_SESSION['level'] = $is_check->level;
+                    // trả về trang tổng 
+                    $domain =  SITE_URL . "index.php?controller=trainingStaff&action=index";
+                    header("Location: $domain");
+                    exit;
 
-                        // trả về trang tổng 
-                        $domain =  SITE_URL . "index.php?controller=trainingStaff&action=index";
-                        header("Location: $domain");
-                        exit;
-                    } else {
-
-                        $domain =  SITE_URL . "index.php?controller=base&action=error_401";
-                        header("Location: $domain");
-                        exit;
-                    }
                 } else {
                     $domain =  SITE_URL . "index.php?controller=base&action=error_401";
                     header("Location: $domain");

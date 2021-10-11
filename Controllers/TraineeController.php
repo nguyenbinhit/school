@@ -35,25 +35,20 @@
                     $is_check = $trainee->login($data['email'], $data['password']);
 
                     if(is_object($is_check) && $is_check->id > 0) 
-                    {
-                        //check password and email
-                        if($is_check->trainee_password === $data['password'] && $is_check->trainee_email == $data['email']) { 
-                            
-                            $_SESSION['admin_email'] = $is_check->trainee_email;
-                            $_SESSION['admin_id'] = $is_check->id;
+                    { 
+                        $_SESSION['admin_email'] = $is_check->trainee_email;
+                        $_SESSION['admin_id'] = $is_check->id;
 
-                            // trả về trang tổng 
-                            $domain =  SITE_URL."index.php?controller=admin&action=index";
-                            header("Location: $domain");
-                            exit;
-                        }else {
-                            echo printf("Mật khẩu nhập không đúng");
-                        }
+                        // trả về trang tổng 
+                        $domain =  SITE_URL."index.php?controller=admin&action=index";
+                        header("Location: $domain");
+                        exit;
                     }
                     else
                     {
-                        // đăng nhập thất bại
-                        $_SESSION['error'] = " Đăng nhập thất bại ";
+                        $domain =  SITE_URL . "index.php?controller=base&action=error_401";
+                        header("Location: $domain");
+                        exit;
                     }
                 }
             }
