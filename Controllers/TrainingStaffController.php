@@ -1,4 +1,5 @@
 <?php
+session_start();
 class TrainingStaffController
 {
     public function index()
@@ -40,16 +41,15 @@ class TrainingStaffController
                 $is_check = $training->fetchLogin($data['email'], $data['password']);
 
                 if (is_object($is_check) && $is_check->id > 0) {
-                    
+
                     $_SESSION['admin_email'] = $is_check->training_staff_email;
                     $_SESSION['admin_id'] = $is_check->id;
                     $_SESSION['level'] = $is_check->level;
 
                     // trả về trang tổng 
-                    $domain =  SITE_URL."index.php?controller=base&action=dashboard";
+                    $domain =  SITE_URL . "index.php?controller=base&action=dashboard";
                     header("Location: $domain");
                     exit;
-
                 } else {
                     $domain =  SITE_URL . "index.php?controller=base&action=error_401";
                     header("Location: $domain");
@@ -62,5 +62,26 @@ class TrainingStaffController
     public function create()
     {
         include_once "Views/TrainingStaff/create.php";
+    }
+
+    // lưu data khi thêm mới
+    public function store()
+    {
+
+        $data = [];
+
+        $data[] = isset($_POST["name"]) ? $_POST["name"] : "";
+        $data[] = isset($_POST["password"]) ? md5($_POST["password"]) : "";
+        $data[] = isset($_POST["email"]) ? $_POST["email"] : "";
+        $data[] = isset($_POST["phone"]) ? $_POST["phone"] : "";
+        $data[] = isset($_POST["levelRadio"]) ? (int) $_POST["levelRadio"] : "";
+
+        // khởi tạo model
+        $trainingStaffModel = new TrainingStaffModel();
+        $trainingStaffModel->store($data);
+
+        $domain =  SITE_URL . "index.php?controller=trainingStaff&action=index";
+        header("Location: $domain");
+        exit;
     }
 }

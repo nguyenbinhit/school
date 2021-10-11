@@ -19,7 +19,7 @@
         </div>
 
         <!-- Step Form -->
-        <form class="js-step-form py-md-5">
+        <form name="themts" class="js-step-form py-md-5" action="<?php echo SITE_URL ?>index.php?controller=trainingStaff&action=store" method="POST">
             <div class="row justify-content-lg-center">
                 <div class="col-lg-8">
                     <!-- Content Step Form -->
@@ -34,7 +34,7 @@
                                     <label for="firstNameLabel" class="col-sm-3 col-form-label input-label">Full name</label>
 
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" name="name" id="name" placeholder="Pham Duc Thang">
+                                        <input type="text" class="form-control" name="name" id="name" value="<?php echo isset($form_data["name"]) ? $form_data["name"] : "" ?>">
                                     </div>
                                 </div>
                                 <!-- End Form Group -->
@@ -44,7 +44,7 @@
                                     <label for="emailLabel" class="col-sm-3 col-form-label input-label">Email</label>
 
                                     <div class="col-sm-9">
-                                        <input type="email" class="form-control" name="email" id="emailLabel" placeholder="clarice@example.com">
+                                        <input type="email" class="form-control" name="email" id="emailLabel" value="<?php echo isset($form_data["email"]) ? $form_data["email"] : "" ?>">
                                     </div>
                                 </div>
                                 <!-- End Form Group -->
@@ -54,7 +54,7 @@
                                     <label for="phoneLabel" class="col-sm-3 col-form-label input-label">Phone</label>
 
                                     <div class="col-sm-9">
-                                        <input type="number" class="form-control" name="phone" id="phone" placeholder="xxxx-xxx-xxx">
+                                        <input type="number" class="form-control" name="phone" id="phone" value="<?php echo isset($form_data["phone"]) ? $form_data["phone"] : "" ?>">
                                     </div>
                                 </div>
                                 <!-- End Form Group -->
@@ -64,7 +64,7 @@
                                     <label for="passwordLabel" class="col-sm-3 col-form-label input-label">Password</label>
 
                                     <div class="col-sm-9">
-                                        <input type="password" class="form-control" name="password" id="password" placeholder="********">
+                                        <input type="password" class="form-control" name="password" id="password" value="<?php echo isset($form_data["password"]) ? $form_data["password"] : "" ?>">
                                     </div>
                                 </div>
                                 <!-- End Form Group -->
@@ -78,7 +78,7 @@
                                             <!-- Custom Radio -->
                                             <div class="form-control">
                                                 <div class="custom-control custom-radio">
-                                                    <input type="radio" class="custom-control-input" name="levelRadio" id="levelRadio1">
+                                                    <input type="radio" class="custom-control-input" name="levelRadio" id="levelRadio1" value="0">
                                                     <label class="custom-control-label" for="levelRadio1">ADMIM</label>
                                                 </div>
                                             </div>
@@ -87,7 +87,7 @@
                                             <!-- Custom Radio -->
                                             <div class="form-control">
                                                 <div class="custom-control custom-radio">
-                                                    <input type="radio" class="custom-control-input" name="levelRadio" id="levelRadio2">
+                                                    <input type="radio" class="custom-control-input" name="levelRadio" id="levelRadio2" value="1">
                                                     <label class="custom-control-label" for="levelRadio2">TRAINING STAFF</label>
                                                 </div>
                                             </div>
