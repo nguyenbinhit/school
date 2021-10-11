@@ -36,8 +36,8 @@
         </div>
 
         <!-- Content -->
-        <div class="container py-5 py-sm-7">
-            <a class="d-flex justify-content-center mb-5" href="index.html">
+        <div class="container py-5 py-sm-7 mt-5">
+            <a class="d-flex justify-content-center mb-5 mt-5" href="index.html">
                 <img class="z-index-2" src="<?php echo assets_css() ?>dashboard\img\Logo-FU-01.png" alt="FPT">
             </a>
 
@@ -53,7 +53,7 @@
                             </div>
 
                             <!-- Login Training Staff -->
-                            <button onclick="document.getElementById('trainingstaff').style.display='block'" class="btn btn-lg btn-block btn-primary">Sign in Training Staff</button>
+                            <button onclick="document.getElementById('trainingstaff').style.display='block'" class="btn btn-lg btn-block btn-primary">Sign in Manament</button>
 
                             <div id="trainingstaff" class="modal">
                                 <!-- Form -->
@@ -65,7 +65,7 @@
                                     <?php include __DIR__ . "/login.php"; ?>
                                     <!-- End Form Group -->
 
-                                    <button type="submit" class="btn btn-lg btn-block btn-primary">Sign in Training Staff</button>
+                                    <button type="submit" class="btn btn-lg btn-block btn-primary">Sign in Manament</button>
                                 </form>
                                 <!-- End Form -->
                             </div>
