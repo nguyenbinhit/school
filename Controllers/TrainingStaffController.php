@@ -3,6 +3,13 @@ class TrainingStaffController
 {
     public function index()
     {
+        // Gọi tới model
+        $trainingStaff = new TrainingStaffModel();
+
+        // Gọi hàm
+        $users = $trainingStaff->getAll();
+
+        // Trả về view
         include_once "Views/TrainingStaff/index.php";
     }
 
@@ -50,5 +57,10 @@ class TrainingStaffController
                 }
             }
         }
+    }
+
+    public function create()
+    {
+        include_once "Views/TrainingStaff/create.php";
     }
 }

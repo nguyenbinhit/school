@@ -20,4 +20,20 @@
             // trả về bản ghi
             return $login;
         }
+
+        // Lấy ra tất cả các bản ghi
+        public function getAll()
+        {
+            $sqlSelect = "SELECT * FROM $this->table";
+
+            $stmt = $this->conn->prepare($sqlSelect);
+
+            $stmt->execute();
+
+            $result = $stmt->setFetchMode(PDO::FETCH_OBJ);
+
+            $users = $stmt->fetchAll();
+
+            return $users;
+        }
     }
