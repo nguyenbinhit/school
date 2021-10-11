@@ -4,12 +4,7 @@
         {
             include_once "Views/Trainee/index.php";
         }
-
-        public function viewlogin()
-        {
-            include_once "Views/Trainee/login.php";
-        }
-
+        
         public function login()
         {
             $data = [

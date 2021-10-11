@@ -5,11 +5,6 @@
             include_once "Views/TrainingStaff/index.php";
         }
 
-        public function viewlogin()
-        {
-            include_once "Views/TrainingStaff/login.php";
-        }
-
         public function login()
         {
             $data = [

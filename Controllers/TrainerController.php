@@ -5,11 +5,6 @@
             include_once "Views/Trainer/index.php";
         }
 
-        public function viewlogin()
-        {
-            include_once "Views/Trainer/login.php";
-        }
-
         public function login()
         {
             $data = [
