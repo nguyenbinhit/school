@@ -13,6 +13,9 @@ CÁC URL
         create:
             http://localhost/school/index.php?controller=trainingStaff&action=create
 
+        detail:
+            http://localhost/school/index.php?controller=trainingStaff&action=detail&id=$id
+
         edit:
             http://localhost/school/index.php?controller=trainingStaff&action=edit&id=$id
         

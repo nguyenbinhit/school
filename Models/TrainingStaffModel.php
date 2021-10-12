@@ -22,6 +22,21 @@ class TrainingStaffModel extends Database
         return $login;
     }
 
+    public function fetchEmail($email)
+    {
+        $sql = "SELECT * FROM $this->table WHERE training_staff_email = ? LIMIT 1";
+
+        $stmtEmail = $this->conn->prepare($sql);
+
+        $stmtEmail->execute([$email]);
+
+        $result = $stmtEmail->setFetchMode(PDO::FETCH_OBJ);
+
+        $email = $stmtEmail->fetchObject();
+
+        return $email;
+    }
+
     // Lấy ra tất cả các bản ghi
     public function getAll()
     {
@@ -43,14 +58,14 @@ class TrainingStaffModel extends Database
     // hàm có input và output
     // input là tham số
     // output là return cuối hàm
-    public function store(array $dataBind)
+    public function store(array $data)
     {
-        $sqlInsert = "INSERT INTO $this->table ( `training_staff_name`, `training_staff_password`, `training_staff_email `, `training_staff_phone`, `level`) 
+        $sqlInsert = "INSERT INTO $this->table ( `training_staff_name`, `training_staff_password`, `training_staff_email`, `training_staff_phone`, `level`) 
                         VALUES ( ?, ?, ?, ?, ?)";
 
         $stmtInsert = $this->conn->prepare($sqlInsert);
 
-        $resultInsert = $stmtInsert->execute($dataBind);
+        $resultInsert = $stmtInsert->execute($data);
 
         // kết quả thực thi câu sql insert
         return $resultInsert;

@@ -17,16 +17,23 @@
                     <h1 class="page-header-title">Nhân viên quản lý</h1>
                 </div>
 
-                <div class="col-sm-auto">
-                    <a class="btn btn-primary" href="<?php echo SITE_URL ?>index.php?controller=trainingStaff&action=create">
-                        <i class="tio-user-add mr-1"></i> Thêm mới
-                    </a>
-                </div>
+                <?php if ($_SESSION['level'] == 0) : ?>
+                    <div class="col-sm-auto">
+                        <a class="btn btn-primary" href="<?php echo SITE_URL ?>index.php?controller=trainingStaff&action=create">
+                            <i class="tio-user-add mr-1"></i> Thêm mới
+                        </a>
+                    </div>
+                <?php endif; ?>
             </div>
             <!-- End Row -->
         </div>
         <!-- End Page Header -->
-
+        <?php if (isset($_SESSION['success'])) : ?>
+            <div class="alert alert-success">
+                <?php echo $_SESSION['success'];
+                unset($_SESSION['success']) ?>
+            </div>
+        <?php endif ?>
         <!-- Card -->
         <div class="card">
             <!-- Header -->
@@ -67,26 +74,36 @@
                     </thead>
 
                     <tbody>
-                        <?php 
-                            if (is_array($users) && !empty($users)) :
-                                foreach($users as $keyUser => $user) :
+                        <?php
+                        if (is_array($users) && !empty($users)) :
+                            foreach ($users as $keyUser => $user) :
                         ?>
-                            <tr class="text-center">
-                                <td><?php echo $user->id ?></td>
-                                <td class="h5"><?php echo $user->training_staff_name ?></td>
-                                <td><?php echo $user->training_staff_email ?></td>
-                                <td><?php echo $user->training_staff_phone ?></span></td>
-                                <td><?php echo $user->training_staff_name ? 'admin' : 'training staff' ?></td>
-                                <td>
-                                    <a class="btn btn-sm btn-soft-info" href="<?php echo SITE_URL ?>index.php?controller=trainingStaff&action=edit&id=<?php echo $user->id ?>" data-toggle="modal" data-target="#editUserModal">
-                                        <i class="tio-edit"></i> Edit
-                                    </a>
-                                    <a class="btn btn-sm btn-soft-danger" href="<?php echo SITE_URL ?>index.php?controller=trainingStaff&action=delete&id=<?php echo $user->id ?>" data-toggle="modal" data-target="#editUserModal">
-                                        <i class="tio-delete-outlined"></i> Delete
-                                    </a>
-                                </td>
-                            </tr>
-                        <?php endforeach; endif;  ?>
+                                <tr class="text-center">
+                                    <td><?php echo $user->id ?></td>
+                                    <td class="h5"><?php echo $user->training_staff_name ?></td>
+                                    <td><?php echo $user->training_staff_email ?></td>
+                                    <td><?php echo $user->training_staff_phone ?></span></td>
+                                    <td><?php echo $user->training_staff_name ? 'admin' : 'training staff' ?></td>
+                                    <td>
+                                        <a class="btn btn-sm btn-soft-primary" href="<?php echo SITE_URL ?>index.php?controller=trainingStaff&action=detail&id=<?php echo $user->id ?>" data-toggle="modal" data-target="#editUserModal">
+                                            <i class="tio-direction"></i> Detail
+                                        </a>
+
+                                        <?php if ($_SESSION['admin_email'] == $user->training_staff_email) : ?>
+                                            <a class="btn btn-sm btn-soft-info" href="<?php echo SITE_URL ?>index.php?controller=trainingStaff&action=edit&id=<?php echo $user->id ?>" data-toggle="modal" data-target="#editUserModal">
+                                                <i class="tio-edit"></i> Edit
+                                            </a>
+                                        <?php endif; ?>
+
+                                        <?php if ($_SESSION['level'] == 0) : ?>
+                                            <a class="btn btn-sm btn-soft-danger" href="<?php echo SITE_URL ?>index.php?controller=trainingStaff&action=delete&id=<?php echo $user->id ?>" data-toggle="modal" data-target="#editUserModal">
+                                                <i class="tio-delete-outlined"></i> Delete
+                                            </a>
+                                        <?php endif; ?>
+                                    </td>
+                                </tr>
+                        <?php endforeach;
+                        endif;  ?>
                     </tbody>
                 </table>
             </div>
@@ -96,4 +113,4 @@
     </div>
     <!-- End Content -->
 
-<?php require_once __DIR__. "/../Layout/footer.php" ?>
+    <?php require_once __DIR__ . "/../Layout/footer.php" ?>
