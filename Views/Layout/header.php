@@ -194,19 +194,19 @@
                             </li>
 
                             <li class="nav-item">
-                                <small class="nav-subtitle" title="Subjects and Classes">Subjects and Classes</small>
+                                <small class="nav-subtitle" title="Subjects and Classes">Course Category and Course</small>
                                 <small class="tio-more-horizontal nav-subtitle-replacer"></small>
                             </li>
 
                             <li class="nav-item ">
-                                <a class="js-nav-tooltip-link nav-link " href="<?php echo SITE_URL ?>index.php?controller=courseCategory&action=index" title="Subjects" data-placement="left">
+                                <a class="js-nav-tooltip-link nav-link " href="<?php echo SITE_URL ?>index.php?controller=courseCategory&action=index" title="Course Category" data-placement="left">
                                     <i class="tio-dashboard-vs-outlined nav-icon"></i>
-                                    <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Subjects</span>
+                                    <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Course Category</span>
                                 </a>
                             </li>
 
                             <li class="nav-item ">
-                                <a class="js-nav-tooltip-link nav-link " href="<?php echo SITE_URL ?>index.php?controller=course&action=index" title="Classes" data-placement="left">
+                                <a class="js-nav-tooltip-link nav-link " href="<?php echo SITE_URL ?>index.php?controller=course&action=index" title="Course" data-placement="left">
                                     <i class="tio-dashboard-vs-outlined nav-icon"></i>
                                     <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Course</span>
                                 </a>
