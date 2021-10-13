@@ -179,11 +179,11 @@ class TrainingStaffController
 
         $data = [];
 
-        $data[] = postInput('name');
-        $data[] = md5(postInput('password'));
-        $data[] = postInput('email');
-        $data[] = postInput('phone');
-        $data[] = postInput('levelRadio');
+        $data['name'] = postInput('name');
+        $data['password'] = md5(postInput('password'));
+        $data['email'] = postInput('email');
+        $data['phone'] = postInput('phone');
+        $data['levelRadio'] = postInput('levelRadio');
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
