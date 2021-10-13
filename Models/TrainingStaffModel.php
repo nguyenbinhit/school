@@ -106,6 +106,47 @@ class TrainingStaffModel extends Database
     //update
     public function fetchUpdate(array $data)
     {
-        # code...
+        $dataBindSql = [];
+        
+        // sql update
+        $sqlUpdate = "UPDATE $this->table SET";
+
+        // update name
+        if (isset($data["name"])) {
+            $sqlUpdate .= "`training_staff_name` = ?";
+            $dataBindSql[] = $data["name"];
+        }
+
+        // update password
+        if (isset($data["password"])) {
+            $sqlUpdate .= ", `training_staff_password` = ?";
+            $dataBindSql[] = $data["password"];
+        }
+
+        // update email
+        if (isset($data["email"])) {
+            $sqlUpdate .= ",`training_staff_email` = ?";
+            $dataBindSql[] = $data["email"];
+        }
+
+        // update phone
+        if (isset($data["phone"])) {
+            $sqlUpdate .= ",`training_staff_phone` = ?";
+            $dataBindSql[] = $data["phone"];
+        }
+
+        // update level
+        if (isset($data["levelRadio"])) {
+            $sqlUpdate .= ",`level` = ?";
+            $dataBindSql[] = $data["levelRadio"];
+        }
+
+        $stmtInsert = $this->conn->prepare($sqlUpdate);
+        
+        // truyền cho ->execute là 1 mảng chỉ số
+        $resultUpdate = $stmtInsert->execute($dataBindSql);
+
+        // output
+        return $resultUpdate;
     }
 }
