@@ -135,13 +135,13 @@ class TrainingStaffController
                 $trainingStaffModel->store($data);
 
                 if ($trainingStaffModel) {
-                    $_SESSION['success'] = " Thêm mới thành công ";
+                    $_SESSION['success'] = " Successfully added new ";
 
                     $domain =  SITE_URL . "index.php?controller=trainingStaff&action=index";
                     header("Location: $domain");
                     exit;
                 } else {
-                    $_SESSION['error'] = " Thêm mới thất bại ";
+                    $_SESSION['error'] = " Add new failure ";
 
                     $domain =  SITE_URL . "index.php?controller=trainingStaff&action=index";
                     header("Location: $domain");
@@ -171,5 +171,85 @@ class TrainingStaffController
         $user = $trainingStaffModel->fetchOne($id);
 
         include_once "Views/TrainingStaff/edit.php";
+    }
+
+    public function update()
+    {
+        $trainingStaffModel = new TrainingStaffModel();
+
+        $data = [];
+
+        $data[] = postInput('name');
+        $data[] = md5(postInput('password'));
+        $data[] = postInput('email');
+        $data[] = postInput('phone');
+        $data[] = postInput('levelRadio');
+
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+
+            $error = [];
+
+            if (postInput('name') == '') {
+                $_SESSION['error_name'] = $error['name'] = "Mời bạn nhập đầy đủ họ và tên ";
+
+                $domain =  SITE_URL . "index.php?controller=trainingStaff&action=edit";
+                header("Location: $domain");
+                exit;
+            }
+
+            if (postInput('email') == '') {
+                $_SESSION['error_email'] = $error['email'] = "Mời bạn nhập email ";
+
+                $domain =  SITE_URL . "index.php?controller=trainingStaff&action=edit";
+                header("Location: $domain");
+                exit;
+            } else {
+                $is_check = $trainingStaffModel->fetchEmail($data['email']);
+                if ($is_check != NULL) {
+                    $_SESSION['error_email'] = $error['email'] = " Đã tồn tại đại chỉ email ! ";
+
+                    $domain =  SITE_URL . "index.php?controller=trainingStaff&action=edit";
+                    header("Location: $domain");
+                    exit;
+                }
+            }
+
+            if (postInput('phone') == '') {
+                $_SESSION['error_phone'] = $error['phone'] = "Mời bạn nhập số điện thoại ";
+
+                $domain =  SITE_URL . "index.php?controller=trainingStaff&action=edit";
+                header("Location: $domain");
+                exit;
+            }
+
+            if (postInput('password') == '') {
+                $_SESSION['error_password'] = $error['password'] = "Mời bạn nhập mật khẩu ";
+
+                $domain =  SITE_URL . "index.php?controller=trainingStaff&action=edit";
+                header("Location: $domain");
+                exit;
+            }
+
+            //error trống có nghĩa ko có lỗi
+            if (empty($error)) {
+
+                $trainingStaffModel->fetchUpdate($data);
+
+                if ($trainingStaffModel) {
+                    $_SESSION['success'] = " Update successful ";
+
+                    $domain =  SITE_URL . "index.php?controller=trainingStaff&action=index";
+                    header("Location: $domain");
+                    exit;
+                } else {
+                    $_SESSION['error'] = " Update failed ";
+
+                    $domain =  SITE_URL . "index.php?controller=trainingStaff&action=index";
+                    header("Location: $domain");
+                    exit;
+                }
+            }
+        }
     }
 }

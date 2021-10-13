@@ -19,7 +19,7 @@
         </div>
 
         <!-- Step Form -->
-        <form name="themts" class="js-step-form py-md-5" action="<?php echo SITE_URL ?>index.php?controller=trainingStaff&action=store" method="POST">
+        <form name="themts" class="js-step-form py-md-5" action="<?php echo SITE_URL ?>index.php?controller=trainingStaff&action=update" method="POST">
             <div class="row justify-content-lg-center">
                 <div class="col-lg-8">
                     <!-- Content Step Form -->
