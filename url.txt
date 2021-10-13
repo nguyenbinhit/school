@@ -14,7 +14,7 @@ CÁC URL
             http://localhost/school/index.php?controller=trainingStaff&action=index
         
         search:
-            http://localhost/school/index.php?controller=trainingStaff&action=search
+            http://localhost/school/index.php?controller=trainingStaff&keyword=?&action=index
 
         create:
             http://localhost/school/index.php?controller=trainingStaff&action=create
@@ -27,3 +27,23 @@ CÁC URL
         
         delete:
             http://localhost/school/index.php?controller=trainingStaff&action=delete&id=$id
+
+    *course category*
+        index: 
+            http://localhost/school/index.php?controller=courseCategory&action=index
+        
+        search:
+            http://localhost/school/index.php?controller=courseCategory&keyword=?&action=index
+
+        create:
+            http://localhost/school/index.php?controller=courseCategory&action=create
+
+        detail:
+            http://localhost/school/index.php?controller=courseCategory&action=detail&id=$id
+
+        edit:
+            http://localhost/school/index.php?controller=courseCategory&action=edit&id=$id
+        
+        delete:
+            http://localhost/school/index.php?controller=courseCategory&action=delete&id=$id
+

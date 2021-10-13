@@ -50,9 +50,24 @@ class CourseCategoryModel extends Database
 
         $result = $stmt->setFetchMode(PDO::FETCH_OBJ);
 
-        $users = $stmt->fetchAll();
+        $courseCategory = $stmt->fetchAll();
 
-        return $users;
+        return $courseCategory;
+    }
+
+    public function fetchCheck($name)
+    {
+        $sql = "SELECT * FROM $this->table WHERE category_name = ? LIMIT 1";
+
+        $stmtCourseCategory = $this->conn->prepare($sql);
+
+        $stmtCourseCategory->execute([$name]);
+
+        $result = $stmtCourseCategory->setFetchMode(PDO::FETCH_OBJ);
+
+        $name = $stmtCourseCategory->fetchObject();
+
+        return $name;
     }
 
     // detail
@@ -60,15 +75,50 @@ class CourseCategoryModel extends Database
     {
         $sql = "SELECT * FROM $this->table WHERE id = ? LIMIT 1";
 
-        $stmtUser = $this->conn->prepare($sql);
+        $stmtCourseCategory = $this->conn->prepare($sql);
 
-        $stmtUser->execute([$id]);
+        $stmtCourseCategory->execute([$id]);
 
-        $result = $stmtUser->setFetchMode(PDO::FETCH_OBJ);
+        $result = $stmtCourseCategory->setFetchMode(PDO::FETCH_OBJ);
 
-        $user = $stmtUser->fetchObject();
+        $courseCategory = $stmtCourseCategory->fetchObject();
 
-        return $user;
+        return $courseCategory;
+    }
+
+    //update
+    public function fetchUpdate(array $data)
+    {
+        $dataBindSql = [];
+        
+        // sql update
+        $sqlUpdate = "UPDATE $this->table SET";
+
+        // update name
+        if (isset($data["subjects_name"])) {
+            $sqlUpdate .= "`category_name` = ?";
+            $dataBindSql[] = $data["subjects_name"];
+        }
+
+        // update 
+        if (isset($data["description"])) {
+            $sqlUpdate .= ",`category_description` = ?";
+            $dataBindSql[] = $data["description"];
+        }
+
+        // update 
+        if (isset($data["id"])) {
+            $sqlUpdate .= "WHERE `id` = ?";
+            $dataBindSql[] = $data["id"];
+        }
+
+        $stmtInsert = $this->conn->prepare($sqlUpdate);
+        
+        // truyền cho ->execute là 1 mảng chỉ số
+        $resultUpdate = $stmtInsert->execute($dataBindSql);
+
+        // output
+        return $resultUpdate;
     }
 
     // Delete

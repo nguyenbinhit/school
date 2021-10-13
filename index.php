@@ -21,13 +21,17 @@ include_once "controllers/BaseController.php";
 include_once "controllers/TrainingStaffController.php";
 include_once "controllers/TrainerController.php";
 include_once "controllers/TraineeController.php";
+include_once "controllers/CourseCategoryController.php";
+include_once "controllers/CourseController.php";
 
-// nạp tiếp các model
+// nạp các model
 include_once "models/TrainingStaffModel.php";
 include_once "models/TrainerModel.php";
 include_once "models/TraineeModel.php";
+include_once "models/CourseCategoryModel.php";
+include_once "models/CourseModel.php";
 
-// nạp tiếp router.php
+// nạp router.php
 include_once "router.php";
 
 $router = new Router();

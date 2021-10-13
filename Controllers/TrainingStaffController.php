@@ -253,6 +253,8 @@ class TrainingStaffController
         // lấy data từ model
         $user = $trainingStaffModel->fetchDelete($id);
 
+        $_SESSION['success'] = " Record delete successful ";
+
         $domain =  SITE_URL . "index.php?controller=trainingStaff&action=index";
         header("Location: $domain");
         exit;

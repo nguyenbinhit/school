@@ -22,6 +22,7 @@ class BaseController
         // huỷ đăng nhập của tài khoản
         unset($_SESSION['admin_email']);
         unset($_SESSION['admin_id']);
+        unset($_SESSION['level']);
 
         // chuyển về đăng nhập
         $domain =  SITE_URL . "index.php?controller=base&action=index";

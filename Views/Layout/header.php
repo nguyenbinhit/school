@@ -70,8 +70,8 @@
                                                 <img class="avatar-img" src="<?php echo assets_css() ?>dashboard\img\160x160\img6.jpg" alt="Image Description">
                                             </div>
                                             <div class="media-body">
-                                                <span class="card-title h5"><?php echo $_SESSION['admin_name']?></span>
-                                                <span class="card-text"><?php echo $_SESSION['admin_email']?></span>
+                                                <span class="card-title h5"><?php echo $_SESSION['admin_name'] ?></span>
+                                                <span class="card-text"><?php echo $_SESSION['admin_email'] ?></span>
                                             </div>
                                         </div>
                                     </div>
@@ -154,26 +154,30 @@
                             <!-- End Dashboards -->
 
                             <li class="nav-item">
-                                <small class="nav-subtitle" title="Account Management">Account Management</small>
+                                <small class="nav-subtitle" title="Account Management">Account</small>
                                 <small class="tio-more-horizontal nav-subtitle-replacer"></small>
                             </li>
 
                             <!-- Training staff -->
-                            <li class="nav-item ">
-                                <a class="js-nav-tooltip-link nav-link " href="<?php echo SITE_URL ?>index.php?controller=trainingStaff&action=index" title="Management staff">
-                                    <i class="tio-pages-outlined nav-icon"></i>
-                                    <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Management staff</span>
-                                </a>
-                            </li>
+                            <?php if ($_SESSION['level'] == 0 || $_SESSION['level'] == 1) : ?>
+                                <li class="nav-item ">
+                                    <a class="js-nav-tooltip-link nav-link " href="<?php echo SITE_URL ?>index.php?controller=trainingStaff&action=index" title="Management staff">
+                                        <i class="tio-pages-outlined nav-icon"></i>
+                                        <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Management staff</span>
+                                    </a>
+                                </li>
+                            <?php endif; ?>
                             <!-- End Training staff -->
 
                             <!-- Trainer  -->
-                            <li class="nav-item ">
-                                <a class="js-nav-tooltip-link nav-link " href="<?php echo SITE_URL ?>index.php?controller=trainingStaff&action=index" title="Trainer">
-                                    <i class="tio-pages-outlined nav-icon"></i>
-                                    <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Trainer</span>
-                                </a>
-                            </li>
+                            <?php if ($_SESSION['level'] == 0 || $_SESSION['level'] == 1 || $_SESSION['level'] == 2) : ?>
+                                <li class="nav-item ">
+                                    <a class="js-nav-tooltip-link nav-link " href="<?php echo SITE_URL ?>index.php?controller=trainingStaff&action=index" title="Trainer">
+                                        <i class="tio-pages-outlined nav-icon"></i>
+                                        <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Trainer</span>
+                                    </a>
+                                </li>
+                            <?php endif; ?>
                             <!-- End Trainer -->
 
                             <!-- Trainee  -->
@@ -188,21 +192,21 @@
                             <li class="nav-item">
                                 <div class="nav-divider"></div>
                             </li>
-                            
+
                             <li class="nav-item">
                                 <small class="nav-subtitle" title="Subjects and Classes">Subjects and Classes</small>
                                 <small class="tio-more-horizontal nav-subtitle-replacer"></small>
                             </li>
 
                             <li class="nav-item ">
-                                <a class="js-nav-tooltip-link nav-link " href="layouts\layouts.html" title="Subjects" data-placement="left">
+                                <a class="js-nav-tooltip-link nav-link " href="<?php echo SITE_URL ?>index.php?controller=courseCategory&action=index" title="Subjects" data-placement="left">
                                     <i class="tio-dashboard-vs-outlined nav-icon"></i>
                                     <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Subjects</span>
                                 </a>
                             </li>
 
                             <li class="nav-item ">
-                                <a class="js-nav-tooltip-link nav-link " href="layouts\layouts.html" title="Classes" data-placement="left">
+                                <a class="js-nav-tooltip-link nav-link " href="<?php echo SITE_URL ?>index.php?controller=course&action=index" title="Classes" data-placement="left">
                                     <i class="tio-dashboard-vs-outlined nav-icon"></i>
                                     <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Classes</span>
                                 </a>
