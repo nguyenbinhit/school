@@ -49,7 +49,7 @@
                                     </div>
                                 </div>
                                 <input type="hidden" name="controller" value="trainingStaff" />
-                                <input type="text" class="form-control" placeholder="Search users" name="keyword">
+                                <input type="text" class="form-control" placeholder="Search management staff" name="keyword">
                             </div>
                             <input type="hidden" name="action" value="index" />
                             <!-- End Search -->
