@@ -1,38 +1,9 @@
 <?php
-class TraineeModel extends Database
+
+class CourseCategoryModel extends Database
 {
-    protected $table = "trainee";
 
-    public function login($email, $password)
-    {
-        $sqlLogin = "SELECT * FROM $this->table WHERE trainee_email = ? AND trainee_password = ? LIMIT 1";
-
-        $stmtLogin = $this->conn->prepare($sqlLogin);
-
-        $stmtLogin->execute([$email, $password]);
-
-        $resultLogin = $stmtLogin->setFetchMode(PDO::FETCH_OBJ);
-        // tổng số bản ghi
-        $login = $stmtLogin->fetchObject();
-
-        return $login;
-    }
-
-    // check trùng email
-    public function fetchEmail($email)
-    {
-        $sql = "SELECT * FROM $this->table WHERE trainee_email = ? LIMIT 1";
-
-        $stmtEmail = $this->conn->prepare($sql);
-
-        $stmtEmail->execute([$email]);
-
-        $result = $stmtEmail->setFetchMode(PDO::FETCH_OBJ);
-
-        $email = $stmtEmail->fetchObject();
-
-        return $email;
-    }
+    protected $table = "course_categorys";
 
     // Lấy ra tất cả các bản ghi
     public function fetchAll()
@@ -57,8 +28,8 @@ class TraineeModel extends Database
     // output là return cuối hàm
     public function fetchStore(array $data)
     {
-        $sqlInsert = "INSERT INTO $this->table ( `trainee_name`, `trainee_email`, `trainee_password`, `trainee_sex`, `trainee_phone`, `age`) 
-                        VALUES ( ?, ?, ?, ?, ?, ?)";
+        $sqlInsert = "INSERT INTO $this->table ( `category_name`, `category_description`) 
+                        VALUES ( ?, ?)";
 
         $stmtInsert = $this->conn->prepare($sqlInsert);
 
@@ -71,7 +42,7 @@ class TraineeModel extends Database
     // tìm kiếm
     public function fetchSearch($name)
     {
-        $sql = " SELECT * FROM $this->table WHERE trainee_name LIKE '%$name%' OR age LIKE '%$name%' ORDER BY id DESC";
+        $sql = " SELECT * FROM $this->table WHERE category_name LIKE '%$name%' ORDER BY id DESC";
 
         $stmt = $this->conn->prepare($sql);
 
