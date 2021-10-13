@@ -204,15 +204,6 @@ class TrainingStaffController
                 $domain =  SITE_URL . "index.php?controller=trainingStaff&action=edit";
                 header("Location: $domain");
                 exit;
-            } else {
-                $is_check = $trainingStaffModel->fetchEmail($data['email']);
-                if ($is_check != NULL) {
-                    $_SESSION['error_email'] = $error['email'] = " Đã tồn tại đại chỉ email ! ";
-
-                    $domain =  SITE_URL . "index.php?controller=trainingStaff&action=edit";
-                    header("Location: $domain");
-                    exit;
-                }
             }
 
             if (postInput('phone') == '') {
