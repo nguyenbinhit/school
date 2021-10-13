@@ -9,6 +9,9 @@ CÁC URL
     *training staff*
         index: 
             http://localhost/school/index.php?controller=trainingStaff&action=index
+        
+        search:
+            http://localhost/school/index.php?controller=trainingStaff&action=search
 
         create:
             http://localhost/school/index.php?controller=trainingStaff&action=create

@@ -5,10 +5,16 @@ class TrainingStaffController
     public function index()
     {
         // Gọi tới model
-        $trainingStaff = new TrainingStaffModel();
+        $trainingStaffModel = new TrainingStaffModel();
 
-        // Gọi hàm
-        $users = $trainingStaff->getAll();
+        if (isset($_GET['keyword'])) {
+            $keyword = $_GET['keyword'];
+
+            $users = $trainingStaffModel->search($keyword);
+        } else {
+            // Gọi hàm
+            $users = $trainingStaffModel->getAll();
+        }
 
         // Trả về view
         include_once "Views/TrainingStaff/index.php";
@@ -135,9 +141,35 @@ class TrainingStaffController
                     header("Location: $domain");
                     exit;
                 } else {
-                    $_SESSION['success'] = " Thêm mới thất bại ";
+                    $_SESSION['error'] = " Thêm mới thất bại ";
+
+                    $domain =  SITE_URL . "index.php?controller=trainingStaff&action=index";
+                    header("Location: $domain");
+                    exit;
                 }
             }
         }
+    }
+
+    public function detail()
+    {
+        $id = isset($_GET["id"]) ? (int) $_GET["id"] : 0;
+
+        $trainingStaffModel = new TrainingStaffModel();
+
+        $user = $trainingStaffModel->fetchOne($id);
+
+        include_once "Views/TrainingStaff/detail.php";
+    }
+
+    public function edit()
+    {
+        $id = isset($_GET["id"]) ? (int) $_GET["id"] : 0;
+        // khởi tạo model
+        $trainingStaffModel = new TrainingStaffModel();
+        // lấy data từ model
+        $user = $trainingStaffModel->fetchOne($id);
+
+        include_once "Views/TrainingStaff/edit.php";
     }
 }

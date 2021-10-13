@@ -40,7 +40,7 @@
             <div class="card-header">
                 <div class="row justify-content-between align-items-center flex-grow-1">
                     <div class="col-sm-6 col-md-4 mb-3 mb-sm-0">
-                        <form>
+                        <form action="" method="GET">
                             <!-- Search -->
                             <div class="input-group input-group-merge input-group-flush">
                                 <div class="input-group-prepend">
@@ -48,8 +48,10 @@
                                         <i class="tio-search"></i>
                                     </div>
                                 </div>
-                                <input id="datatableSearch" type="search" class="form-control" placeholder="Search users" aria-label="Search users">
+                                <input type="hidden" name="controller" value="trainingStaff" />
+                                <input type="text" class="form-control" placeholder="Search users" name="keyword">
                             </div>
+                            <input type="hidden" name="action" value="index" />
                             <!-- End Search -->
                         </form>
                     </div>
@@ -83,20 +85,26 @@
                                     <td class="h5"><?php echo $user->training_staff_name ?></td>
                                     <td><?php echo $user->training_staff_email ?></td>
                                     <td><?php echo $user->training_staff_phone ?></span></td>
-                                    <td><?php echo $user->training_staff_name ? 'admin' : 'training staff' ?></td>
                                     <td>
-                                        <a class="btn btn-sm btn-soft-primary" href="<?php echo SITE_URL ?>index.php?controller=trainingStaff&action=detail&id=<?php echo $user->id ?>" data-toggle="modal" data-target="#editUserModal">
+                                        <?php if ($user->level == 0) {
+                                            echo "admin";
+                                        } else {
+                                            echo 'training staff';
+                                        }  ?>
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-sm btn-soft-primary" href="<?php echo SITE_URL ?>index.php?controller=trainingStaff&action=detail&id=<?php echo $user->id ?>">
                                             <i class="tio-direction"></i> Detail
                                         </a>
 
                                         <?php if ($_SESSION['admin_email'] == $user->training_staff_email) : ?>
-                                            <a class="btn btn-sm btn-soft-info" href="<?php echo SITE_URL ?>index.php?controller=trainingStaff&action=edit&id=<?php echo $user->id ?>" data-toggle="modal" data-target="#editUserModal">
+                                            <a class="btn btn-sm btn-soft-info" href="<?php echo SITE_URL ?>index.php?controller=trainingStaff&action=edit&id=<?php echo $user->id ?>">
                                                 <i class="tio-edit"></i> Edit
                                             </a>
                                         <?php endif; ?>
 
                                         <?php if ($_SESSION['level'] == 0) : ?>
-                                            <a class="btn btn-sm btn-soft-danger" href="<?php echo SITE_URL ?>index.php?controller=trainingStaff&action=delete&id=<?php echo $user->id ?>" data-toggle="modal" data-target="#editUserModal">
+                                            <a class="btn btn-sm btn-soft-danger" href="<?php echo SITE_URL ?>index.php?controller=trainingStaff&action=delete&id=<?php echo $user->id ?>">
                                                 <i class="tio-delete-outlined"></i> Delete
                                             </a>
                                         <?php endif; ?>
