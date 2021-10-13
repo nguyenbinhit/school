@@ -208,7 +208,7 @@
                             <li class="nav-item ">
                                 <a class="js-nav-tooltip-link nav-link " href="<?php echo SITE_URL ?>index.php?controller=course&action=index" title="Classes" data-placement="left">
                                     <i class="tio-dashboard-vs-outlined nav-icon"></i>
-                                    <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Classes</span>
+                                    <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Course</span>
                                 </a>
                             </li>
                         </ul>

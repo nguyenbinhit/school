@@ -8,7 +8,9 @@ class CourseModel extends Database
     // Lấy ra tất cả các bản ghi
     public function fetchAll()
     {
-        $sqlSelect = "SELECT * FROM $this->table ORDER BY id DESC";
+        $sqlSelect = "SELECT * FROM $this->table 
+                        INNER JOIN course_categorys ON $this->table.course_categorys_id = course_categorys.id
+                        ORDER BY $this->table.id DESC";
 
         $stmt = $this->conn->prepare($sqlSelect);
 
