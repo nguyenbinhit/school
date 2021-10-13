@@ -9,18 +9,18 @@
                 <div class="col-sm mb-2 mb-sm-0">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb breadcrumb-no-gutter">
-                            <li class="breadcrumb-item"><a class="breadcrumb-link" href="<?php echo SITE_URL ?>index.php?controller=trainingStaff&action=index">Nhân viên quản lý</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Tổng</li>
+                            <li class="breadcrumb-item"><a class="breadcrumb-link" href="<?php echo SITE_URL ?>index.php?controller=trainingStaff&action=index">Management staff</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">All</li>
                         </ol>
                     </nav>
 
-                    <h1 class="page-header-title">Nhân viên quản lý</h1>
+                    <h1 class="page-header-title">Management staff</h1>
                 </div>
 
                 <?php if ($_SESSION['level'] == 0) : ?>
                     <div class="col-sm-auto">
                         <a class="btn btn-primary" href="<?php echo SITE_URL ?>index.php?controller=trainingStaff&action=create">
-                            <i class="tio-user-add mr-1"></i> Thêm mới
+                            <i class="tio-user-add mr-1"></i> Add new
                         </a>
                     </div>
                 <?php endif; ?>

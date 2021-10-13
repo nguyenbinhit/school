@@ -8,12 +8,12 @@
                 <div class="col-sm mb-2 mb-sm-0">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb breadcrumb-no-gutter">
-                            <li class="breadcrumb-item"><a class="breadcrumb-link" href="<?php echo SITE_URL ?>index.php?controller=trainingStaff&action=index">Nhân viên quản lý</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Chi tiết</li>
+                            <li class="breadcrumb-item"><a class="breadcrumb-link" href="<?php echo SITE_URL ?>index.php?controller=trainingStaff&action=index">Management staff</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Detail</li>
                         </ol>
                     </nav>
 
-                    <h1 class="page-header-title">Chi tiết nhân viên quản lý</h1>
+                    <h1 class="page-header-title">Management staff details</h1>
                 </div>
             </div>
         </div>

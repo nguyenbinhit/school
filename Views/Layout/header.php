@@ -79,11 +79,11 @@
                                     <div class="dropdown-divider"></div>
 
                                     <a class="dropdown-item" href="#">
-                                        <span class="text-truncate pr-2" title="Profile &amp; account">Thông tin cá nhân</span>
+                                        <span class="text-truncate pr-2" title="Profile &amp; account">Personal information</span>
                                     </a>
 
                                     <a class="dropdown-item" href="#">
-                                        <span class="text-truncate pr-2" title="Sign out">Đăng xuất</span>
+                                        <span class="text-truncate pr-2" title="Sign out">Sign out</span>
                                     </a>
                                 </div>
                             </div>
@@ -150,58 +150,42 @@
                         <ul class="navbar-nav navbar-nav-lg nav-tabs">
                             <!-- Dashboards -->
                             <li class="nav-item ">
-                                <a class="js-nav-tooltip-link nav-link " href="<?php echo SITE_URL ?>index.php?controller=base&action=dashboard" title="Bảng thống kê" data-placement="left">
+                                <a class="js-nav-tooltip-link nav-link " href="<?php echo SITE_URL ?>index.php?controller=base&action=dashboard" title="Dashboard" data-placement="left">
                                     <i class="tio-home-vs-1-outlined nav-icon"></i>
-                                    <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Bảng thống kê</span>
+                                    <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Dashboard</span>
                                 </a>
                             </li>
                             <!-- End Dashboards -->
 
                             <li class="nav-item">
-                                <small class="nav-subtitle" title="Quản lý tài khoản">Quản lý tài khoản</small>
+                                <small class="nav-subtitle" title="Account Management">Account Management</small>
                                 <small class="tio-more-horizontal nav-subtitle-replacer"></small>
                             </li>
 
                             <!-- Training staff -->
                             <li class="nav-item ">
-                                <a class="js-nav-tooltip-link nav-link " href="<?php echo SITE_URL ?>index.php?controller=trainingStaff&action=index" title="Nhân viên quản lý">
+                                <a class="js-nav-tooltip-link nav-link " href="<?php echo SITE_URL ?>index.php?controller=trainingStaff&action=index" title="Management staff">
                                     <i class="tio-pages-outlined nav-icon"></i>
-                                    <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Nhân viên quản lý</span>
+                                    <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Management staff</span>
                                 </a>
                             </li>
                             <!-- End Training staff -->
 
                             <!-- Trainer  -->
                             <li class="nav-item ">
-                                <a class="js-nav-tooltip-link nav-link " href="<?php echo SITE_URL ?>index.php?controller=trainingStaff&action=index" title="Giáo viên">
+                                <a class="js-nav-tooltip-link nav-link " href="<?php echo SITE_URL ?>index.php?controller=trainingStaff&action=index" title="Trainer">
                                     <i class="tio-pages-outlined nav-icon"></i>
-                                    <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Giáo viên</span>
+                                    <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Trainer</span>
                                 </a>
                             </li>
                             <!-- End Trainer -->
 
                             <!-- Trainee  -->
-                            <li class="navbar-vertical-aside-has-menu ">
-                                <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle " href="javascript:;" title="Học viên">
+                            <li class="nav-item ">
+                                <a class="js-nav-tooltip-link nav-link " href="<?php echo SITE_URL ?>index.php?controller=trainingStaff&action=index" title="Trainee">
                                     <i class="tio-pages-outlined nav-icon"></i>
-                                    <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Học viên</span>
+                                    <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Trainee</span>
                                 </a>
-
-                                <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
-                                    <li class="nav-item">
-                                        <a class="nav-link " href="referrals.html" title="Tổng">
-                                            <span class="tio-circle nav-indicator-icon"></span>
-                                            <span class="text-truncate">Tổng</span>
-                                        </a>
-                                    </li>
-
-                                    <li class="nav-item">
-                                        <a class="nav-link " href="referrals.html" title="Thêm mới">
-                                            <span class="tio-circle nav-indicator-icon"></span>
-                                            <span class="text-truncate">Thêm mới</span>
-                                        </a>
-                                    </li>
-                                </ul>
                             </li>
                             <!-- End Trainee -->
 
@@ -210,21 +194,21 @@
                             </li>
                             
                             <li class="nav-item">
-                                <small class="nav-subtitle" title="Môn học và Khoá học">Môn học và Khoá học</small>
+                                <small class="nav-subtitle" title="Subjects and Classes">Subjects and Classes</small>
                                 <small class="tio-more-horizontal nav-subtitle-replacer"></small>
                             </li>
 
                             <li class="nav-item ">
-                                <a class="js-nav-tooltip-link nav-link " href="layouts\layouts.html" title="Môn học" data-placement="left">
+                                <a class="js-nav-tooltip-link nav-link " href="layouts\layouts.html" title="Subjects" data-placement="left">
                                     <i class="tio-dashboard-vs-outlined nav-icon"></i>
-                                    <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Môn học</span>
+                                    <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Subjects</span>
                                 </a>
                             </li>
 
                             <li class="nav-item ">
-                                <a class="js-nav-tooltip-link nav-link " href="layouts\layouts.html" title="Khoá học" data-placement="left">
+                                <a class="js-nav-tooltip-link nav-link " href="layouts\layouts.html" title="Classes" data-placement="left">
                                     <i class="tio-dashboard-vs-outlined nav-icon"></i>
-                                    <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Khoá học</span>
+                                    <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Classes</span>
                                 </a>
                             </li>
                         </ul>

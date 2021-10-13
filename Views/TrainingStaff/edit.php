@@ -8,12 +8,12 @@
                 <div class="col-sm mb-2 mb-sm-0">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb breadcrumb-no-gutter">
-                            <li class="breadcrumb-item"><a class="breadcrumb-link" href="<?php echo SITE_URL ?>index.php?controller=trainingStaff&action=index">Nhân viên quản lý</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Cập nhật</li>
+                            <li class="breadcrumb-item"><a class="breadcrumb-link" href="<?php echo SITE_URL ?>index.php?controller=trainingStaff&action=index">Management staff</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Update</li>
                         </ol>
                     </nav>
 
-                    <h1 class="page-header-title">Cập nhật nhân viên quản lý</h1>
+                    <h1 class="page-header-title">Update management staff account</h1>
                 </div>
             </div>
         </div>
@@ -34,7 +34,7 @@
                                     <label for="firstNameLabel" class="col-sm-3 col-form-label input-label">Full name</label>
 
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" name="name" id="name" value="<?php echo isset($form_data["name"]) ? $form_data["name"] : "" ?>">
+                                        <input type="text" class="form-control" name="name" id="name" value="<?php echo $user->training_staff_name ?>">
                                         <?php if (isset($_SESSION['error_name'])) : ?>
                                             <p class="text-danger">
                                                 <?php echo $_SESSION['error_name']; unset($_SESSION['error_name']); ?>
@@ -49,7 +49,7 @@
                                     <label for="emailLabel" class="col-sm-3 col-form-label input-label">Email</label>
 
                                     <div class="col-sm-9">
-                                        <input type="email" class="form-control" name="email" id="emailLabel" value="<?php echo isset($form_data["email"]) ? $form_data["email"] : "" ?>">
+                                        <input type="email" class="form-control" name="email" id="emailLabel" value="<?php echo $user->training_staff_email ?>">
                                         <?php if (isset($_SESSION['error_email'])) : ?>
                                             <p class="text-danger">
                                                 <?php echo $_SESSION['error_email']; unset($_SESSION['error_email']); ?>
@@ -64,7 +64,7 @@
                                     <label for="phoneLabel" class="col-sm-3 col-form-label input-label">Phone</label>
 
                                     <div class="col-sm-9">
-                                        <input type="number" class="form-control" name="phone" id="phone" value="<?php echo isset($form_data["phone"]) ? $form_data["phone"] : "" ?>">
+                                        <input type="number" class="form-control" name="phone" id="phone" value="<?php echo $user->training_staff_phone ?>">
                                         <?php if (isset($_SESSION['error_phone'])) : ?>
                                             <p class="text-danger">
                                                 <?php echo $_SESSION['error_phone']; unset($_SESSION['error_phone']); ?>
@@ -79,7 +79,7 @@
                                     <label for="passwordLabel" class="col-sm-3 col-form-label input-label">Password</label>
 
                                     <div class="col-sm-9">
-                                        <input type="password" class="form-control" name="password" id="password" value="<?php echo isset($form_data["password"]) ? $form_data["password"] : "" ?>">
+                                        <input type="password" class="form-control" name="password" id="password" value="<?php echo $user->training_staff_password ?>">
                                         <?php if (isset($_SESSION['error_password'])) : ?>
                                             <p class="text-danger">
                                                 <?php echo $_SESSION['error_password']; unset($_SESSION['error_password']); ?>
@@ -98,7 +98,8 @@
                                             <!-- Custom Radio -->
                                             <div class="form-control">
                                                 <div class="custom-control custom-radio">
-                                                    <input type="radio" class="custom-control-input" name="levelRadio" id="levelRadio1" value="0">
+                                                    <?php $radio0 = ($user->level == 0) ? "checked" : "";  ?>
+                                                    <input type="radio" class="custom-control-input" name="levelRadio" id="levelRadio1" value="0" <?php echo $radio0 ?>>
                                                     <label class="custom-control-label" for="levelRadio1">ADMIM</label>
                                                 </div>
                                             </div>
@@ -107,7 +108,8 @@
                                             <!-- Custom Radio -->
                                             <div class="form-control">
                                                 <div class="custom-control custom-radio">
-                                                    <input type="radio" class="custom-control-input" name="levelRadio" id="levelRadio2" value="1">
+                                                    <?php $radio1 = ($user->level == 1) ? "checked" : "";  ?>    
+                                                    <input type="radio" class="custom-control-input" name="levelRadio" id="levelRadio2" value="1" <?php echo $radio1 ?>>
                                                     <label class="custom-control-label" for="levelRadio2">TRAINING STAFF</label>
                                                 </div>
                                             </div>
@@ -122,7 +124,7 @@
                             <!-- Footer -->
                             <div class="card-footer d-flex justify-content-end align-items-center">
                                 <button type="submit" class="btn btn-primary">
-                                    Create
+                                    Update
                                 </button>
                             </div>
                             <!-- End Footer -->

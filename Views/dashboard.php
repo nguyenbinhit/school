@@ -8,7 +8,7 @@
             <div class="page-header">
                 <div class="row align-items-center">
                     <div class="col-sm mb-2 mb-sm-0">
-                        <h1 class="page-header-title">Bảng thống kê</h1>
+                        <h1 class="page-header-title">Dashboard</h1>
                     </div>
                 </div>
             </div>
@@ -20,7 +20,7 @@
                     <!-- Card -->
                     <a class="card card-hover-shadow h-100" href="#">
                         <div class="card-body">
-                            <h6 class="card-subtitle">Tổng số tài khoản nhân viên quản lý</h6>
+                            <h6 class="card-subtitle">Total number of management staff accounts</h6>
 
                             <div class="row align-items-center gx-2 mb-1 mt-5">
                                 <div class="col-6">
@@ -37,7 +37,7 @@
                     <!-- Card -->
                     <a class="card card-hover-shadow h-100" href="#">
                         <div class="card-body">
-                            <h6 class="card-subtitle">Tổng số tài khoản giáo viên</h6>
+                            <h6 class="card-subtitle">Total number of trainer accounts</h6>
 
                             <div class="row align-items-center gx-2 mb-1 mt-5">
                                 <div class="col-6">
@@ -54,7 +54,7 @@
                     <!-- Card -->
                     <a class="card card-hover-shadow h-100" href="#">
                         <div class="card-body">
-                            <h6 class="card-subtitle">Tổng số tài khoản học viên</h6>
+                            <h6 class="card-subtitle">Total number of trainee accounts</h6>
 
                             <div class="row align-items-center gx-2 mb-1 mt-5">
                                 <div class="col-6">
@@ -71,7 +71,7 @@
                     <!-- Card -->
                     <a class="card card-hover-shadow h-100" href="#">
                         <div class="card-body">
-                            <h6 class="card-subtitle">Tổng các khoá học</h6>
+                            <h6 class="card-subtitle">Total number of classes</h6>
 
                             <div class="row align-items-center gx-2 mb-1 mt-5">
                                 <div class="col-6">
