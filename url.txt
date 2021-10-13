@@ -3,6 +3,9 @@ CÁC URL
     *login*
         http://localhost/school/index.php?controller=base&action=index
 
+    *logout*
+        http://localhost/school/index.php?controller=base&action=logout    
+
     *dashboard*
         http://localhost/school/index.php?controller=base&action=dashboard
     

@@ -32,12 +32,12 @@ class TrainingStaffController
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // check dữ liệu người dùng nhập vào
             if ($data['email'] == '') {
-                $error['email'] = " Email không được để trống ! ";
+                $error['email'] = " Email cannot be blank ! ";
             }
 
             // check dữ liệu người dùng nhập vào
             if ($data['password'] == '') {
-                $error['password'] = " Mật khẩu không được để trống ! ";
+                $error['password'] = " Password can not be blank ! ";
             }
 
             if (empty($error)) {
@@ -48,6 +48,7 @@ class TrainingStaffController
 
                 if (is_object($is_check) && $is_check->id > 0) {
 
+                    $_SESSION['admin_name'] = $is_check->training_staff_name;
                     $_SESSION['admin_email'] = $is_check->training_staff_email;
                     $_SESSION['admin_id'] = $is_check->id;
                     $_SESSION['level'] = $is_check->level;
@@ -89,7 +90,7 @@ class TrainingStaffController
             $error = [];
 
             if (postInput('name') == '') {
-                $_SESSION['error_name'] = $error['name'] = "Mời bạn nhập đầy đủ họ và tên ";
+                $_SESSION['error_name'] = $error['name'] = " Please enter your full first and last name ";
 
                 $domain =  SITE_URL . "index.php?controller=trainingStaff&action=create";
                 header("Location: $domain");
@@ -97,7 +98,7 @@ class TrainingStaffController
             }
 
             if (postInput('email') == '') {
-                $_SESSION['error_email'] = $error['email'] = "Mời bạn nhập email ";
+                $_SESSION['error_email'] = $error['email'] = " Please enter your email ";
 
                 $domain =  SITE_URL . "index.php?controller=trainingStaff&action=create";
                 header("Location: $domain");
@@ -105,7 +106,7 @@ class TrainingStaffController
             } else {
                 $is_check = $trainingStaffModel->fetchEmail($data['email']);
                 if ($is_check != NULL) {
-                    $_SESSION['error_email'] = $error['email'] = " Đã tồn tại đại chỉ email ! ";
+                    $_SESSION['error_email'] = $error['email'] = " Email address already exists ! ";
 
                     $domain =  SITE_URL . "index.php?controller=trainingStaff&action=create";
                     header("Location: $domain");
@@ -114,7 +115,7 @@ class TrainingStaffController
             }
 
             if (postInput('phone') == '') {
-                $_SESSION['error_phone'] = $error['phone'] = "Mời bạn nhập số điện thoại ";
+                $_SESSION['error_phone'] = $error['phone'] = " Please enter your phone number ";
 
                 $domain =  SITE_URL . "index.php?controller=trainingStaff&action=create";
                 header("Location: $domain");
@@ -122,7 +123,7 @@ class TrainingStaffController
             }
 
             if (postInput('password') == '') {
-                $_SESSION['error_password'] = $error['password'] = "Mời bạn nhập mật khẩu ";
+                $_SESSION['error_password'] = $error['password'] = " Please enter your password ";
 
                 $domain =  SITE_URL . "index.php?controller=trainingStaff&action=create";
                 header("Location: $domain");
@@ -191,7 +192,7 @@ class TrainingStaffController
             $error = [];
 
             if (postInput('name') == '') {
-                $_SESSION['error_name'] = $error['name'] = "Mời bạn nhập đầy đủ họ và tên ";
+                $_SESSION['error_name'] = $error['name'] = " Please enter your full first and last name ";
 
                 $domain =  SITE_URL . "index.php?controller=trainingStaff&action=edit";
                 header("Location: $domain");
@@ -199,7 +200,7 @@ class TrainingStaffController
             }
 
             if (postInput('email') == '') {
-                $_SESSION['error_email'] = $error['email'] = "Mời bạn nhập email ";
+                $_SESSION['error_email'] = $error['email'] = " Please enter your email ";
 
                 $domain =  SITE_URL . "index.php?controller=trainingStaff&action=edit";
                 header("Location: $domain");
@@ -207,7 +208,7 @@ class TrainingStaffController
             }
 
             if (postInput('phone') == '') {
-                $_SESSION['error_phone'] = $error['phone'] = "Mời bạn nhập số điện thoại ";
+                $_SESSION['error_phone'] = $error['phone'] = " Please enter your phone number ";
 
                 $domain =  SITE_URL . "index.php?controller=trainingStaff&action=edit";
                 header("Location: $domain");
@@ -215,7 +216,7 @@ class TrainingStaffController
             }
 
             if (postInput('password') == '') {
-                $_SESSION['error_password'] = $error['password'] = "Mời bạn nhập mật khẩu ";
+                $_SESSION['error_password'] = $error['password'] = " Please enter your password ";
 
                 $domain =  SITE_URL . "index.php?controller=trainingStaff&action=edit";
                 header("Location: $domain");
@@ -242,5 +243,18 @@ class TrainingStaffController
                 }
             }
         }
+    }
+
+    public function delete()
+    {
+        $id = isset($_GET["id"]) ? (int) $_GET["id"] : 0;
+        // khởi tạo model
+        $trainingStaffModel = new TrainingStaffModel();
+        // lấy data từ model
+        $user = $trainingStaffModel->fetchDelete($id);
+
+        $domain =  SITE_URL . "index.php?controller=trainingStaff&action=index";
+        header("Location: $domain");
+        exit;
     }
 }

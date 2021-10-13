@@ -149,4 +149,17 @@ class TrainingStaffModel extends Database
         // output
         return $resultUpdate;
     }
+
+    // Delete
+    public function fetchDelete($id)
+    {
+        $sqlDelete = "DELETE FROM $this->table WHERE `id` = ?";
+
+        $stmtDelete = $this->conn->prepare($sqlDelete);
+
+        $resultDelete = $stmtDelete->execute([$id]);
+
+        // output
+        return $resultDelete;
+    }
 }

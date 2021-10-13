@@ -70,19 +70,15 @@
                                                 <img class="avatar-img" src="<?php echo assets_css() ?>dashboard\img\160x160\img6.jpg" alt="Image Description">
                                             </div>
                                             <div class="media-body">
-                                                <span class="card-title h5">Admin</span>
-                                                <span class="card-text">admin@example.com</span>
+                                                <span class="card-title h5"><?php echo $_SESSION['admin_name']?></span>
+                                                <span class="card-text"><?php echo $_SESSION['admin_email']?></span>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="dropdown-divider"></div>
 
-                                    <a class="dropdown-item" href="#">
-                                        <span class="text-truncate pr-2" title="Profile &amp; account">Personal information</span>
-                                    </a>
-
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="<?php echo SITE_URL ?>index.php?controller=base&action=logout">
                                         <span class="text-truncate pr-2" title="Sign out">Sign out</span>
                                     </a>
                                 </div>
