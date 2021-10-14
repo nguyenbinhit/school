@@ -106,6 +106,25 @@ class CourseModel extends Database
         return $data;
     }
 
+    // one edit
+    public function fetchEdit($id)
+    {
+        $sqlCourse = "SELECT $this->table.id, $this->table.course_categorys_id, $this->table.course_name, $this->table.course_description, $this->table.end_date,
+                        course_categorys.category_name
+                        FROM $this->table 
+                        INNER JOIN course_categorys ON $this->table.course_categorys_id = course_categorys.id WHERE $this->table.id = ? LIMIT 1";
+        
+        $stmtCourse = $this->conn->prepare($sqlCourse);
+
+        $stmtCourse->execute([$id]);
+
+        $result = $stmtCourse->setFetchMode(PDO::FETCH_OBJ);
+
+        $course = $stmtCourse->fetchObject();
+
+        return $course;
+    }
+
     // Delete
     public function fetchDelete($id)
     {

@@ -110,11 +110,21 @@ class CourseController
 
         $data = $courseModel->fetchOne($id);
 
-        // echo '<pre>';
-        //     print_r($data);die;
-        // echo '</pre>';
-        
-
         include_once "Views/Course/detail.php";
+    }
+
+    public function edit()
+    {
+        $id = isset($_GET["id"]) ? (int) $_GET["id"] : 0;
+        // khởi tạo model
+        $courseModel = new CourseModel();
+        // lấy data từ model
+        $course = $courseModel->fetchEdit($id);
+
+        $courseCategoryModel = new CourseCategoryModel();
+
+        $courseCategories = $courseCategoryModel->fetchAll();
+
+        include_once "Views/Course/edit.php";
     }
 }

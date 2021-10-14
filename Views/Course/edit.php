@@ -34,7 +34,7 @@
                                     <label for="firstNameLabel" class="col-sm-3 col-form-label input-label">Course name</label>
 
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" name="course_name" id="course_name" value="<?php echo isset($form_data["course_name"]) ? $form_data["course_name"] : "" ?>">
+                                        <input type="text" class="form-control" name="course_name" id="course_name" value="<?php echo $course->course_name ?>">
                                         <?php if (isset($_SESSION['error_course_name'])) : ?>
                                             <p class="text-danger">
                                                 <?php echo $_SESSION['error_course_name'];
@@ -54,7 +54,7 @@
                                         <select class="form-control col-md-8" name="course_category_id">
                                             <option value=""> - Please select a course - </option>
                                             <?php foreach ($courseCategories as $item) : ?>
-                                                <option value="<?php echo $item->id ?>"><?php echo $item->category_name ?></option>
+                                                <option value="<?php echo $item->id ?>" <?php echo $course['course_categorys_id'] == $item['id'] ? "selected = 'selected'" : '' ?> ><?php echo $item->category_name ?></option>
                                             <?php endforeach ?>
                                         </select>
 
@@ -72,7 +72,9 @@
                                     <label for="descriptionLabel" class="col-sm-3 col-form-label input-label">Course description</label>
 
                                     <div class="col-sm-9">
-                                        <textarea class="form-control" name="description" id="descriptionLabel" value="<?php echo isset($form_data["course_description"]) ? $form_data["course_description"] : "" ?>" rows="4"></textarea>
+                                        <textarea class="form-control" name="description" id="descriptionLabel" rows="4">
+                                            <?php echo $course->course_description ?>
+                                        </textarea>
                                         <?php if (isset($_SESSION['error_course_description'])) : ?>
                                             <p class="text-danger">
                                                 <?php echo $_SESSION['error_course_description'];
@@ -88,7 +90,7 @@
                                     <label for="end_dateLabel" class="col-sm-3 col-form-label input-label">Course end date</label>
 
                                     <div class="col-sm-9">
-                                        <input type="date" name="end_date" class="form-control" value="<?php echo isset($form_data["end_date"]) ? $form_data["end_date"] : "" ?>">
+                                        <input type="date" name="end_date" class="form-control" value="<?php echo $course->end_date ?>">
                                     </div>
                                 </div>
                                 <!-- End Form Group -->
