@@ -8,7 +8,9 @@ class CourseModel extends Database
     // Lấy ra tất cả các bản ghi
     public function fetchAll()
     {
-        $sqlSelect = "SELECT * FROM $this->table 
+        $sqlSelect = "SELECT $this->table.id, $this->table.course_categorys_id, $this->table.course_name, $this->table.course_description, $this->table.end_date,
+                        course_categorys.category_name, course_categorys.category_description
+                        FROM $this->table 
                         INNER JOIN course_categorys ON $this->table.course_categorys_id = course_categorys.id
                         ORDER BY $this->table.id DESC";
 
@@ -41,6 +43,21 @@ class CourseModel extends Database
         return $resultInsert;
     }
 
+    public function fetchCheck($name)
+    {
+        $sql = "SELECT * FROM $this->table WHERE course_name = ? LIMIT 1";
+
+        $stmtCourseCategory = $this->conn->prepare($sql);
+
+        $stmtCourseCategory->execute([$name]);
+
+        $result = $stmtCourseCategory->setFetchMode(PDO::FETCH_OBJ);
+
+        $name = $stmtCourseCategory->fetchObject();
+
+        return $name;
+    }
+
     // tìm kiếm
     public function fetchSearch($name)
     {
@@ -60,17 +77,33 @@ class CourseModel extends Database
     // detail
     public function fetchOne($id)
     {
-        $sql = "SELECT * FROM $this->table WHERE id = ? LIMIT 1";
+        $sqlCourse = "SELECT * FROM $this->table WHERE id = ? LIMIT 1";
+        $stmtCourse = $this->conn->prepare($sqlCourse);
+        $stmtCourse->execute([$id]);
+        $result = $stmtCourse->setFetchMode(PDO::FETCH_OBJ);
+        $course = $stmtCourse->fetchObject();
 
-        $stmtUser = $this->conn->prepare($sql);
+        $sqlTrainer = "SELECT * FROM trainer WHERE course_id = ? ";
+        $stmtTrainer = $this->conn->prepare($sqlTrainer);
+        $stmtTrainer->execute([$id]);
+        $result1 = $stmtTrainer->setFetchMode(PDO::FETCH_OBJ);
+        $trainer = $stmtTrainer->fetchObject();
 
-        $stmtUser->execute([$id]);
+        $sqlTrainee = "SELECT * FROM trainee WHERE course_id = ? ORDER BY id DESC";
+        $stmtTrainee = $this->conn->prepare($sqlTrainee);
+        $stmtTrainee->execute([$id]);
+        $result2 = $stmtTrainee->setFetchMode(PDO::FETCH_OBJ);
+        $trainee = $stmtTrainee->fetchAll();
 
-        $result = $stmtUser->setFetchMode(PDO::FETCH_OBJ);
+        $sqlCourse_categorys = "SELECT * FROM $this->table INNER JOIN course_categorys ON $this->table.course_categorys_id = course_categorys.id WHERE $this->table.id = ?";
+        $stmtCourse_categorys = $this->conn->prepare($sqlCourse_categorys);
+        $stmtCourse_categorys->execute([$id]);
+        $result3 = $stmtCourse_categorys->setFetchMode(PDO::FETCH_OBJ);
+        $course_categorys = $stmtCourse_categorys->fetchObject();
 
-        $user = $stmtUser->fetchObject();
+        $data = [ "course" => $course, "trainer" => $trainer, "trainee" => $trainee, "course_categorys" => $course_categorys];
 
-        return $user;
+        return $data;
     }
 
     // Delete

@@ -108,18 +108,6 @@
                         </div>
                         <!-- End Card -->
                     </div>
-
-                    <!-- <div class="col-lg-8">
-                        <div class="card mb-3 mb-lg-5">
-                            <div class="card-header">
-                                <h2 class="card-header-title h5">Activity stream</h2>
-                            </div>
-
-                            <div class="card-body card-body-height card-body-centered">
-                                <p class="card-text">No data to show</p>
-                            </div>
-                        </div>
-                    </div> -->
                 </div>
             </div>
         </div>

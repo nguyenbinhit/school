@@ -3,12 +3,15 @@ CÁC URL
     *login*
         http://localhost/school/index.php?controller=base&action=index
 
+
     *logout*
         http://localhost/school/index.php?controller=base&action=logout    
+
 
     *dashboard*
         http://localhost/school/index.php?controller=base&action=dashboard
     
+
     *training staff*
         index: 
             http://localhost/school/index.php?controller=trainingStaff&action=index
@@ -27,6 +30,7 @@ CÁC URL
         
         delete:
             http://localhost/school/index.php?controller=trainingStaff&action=delete&id=$id
+
 
     *course category*
         index: 
