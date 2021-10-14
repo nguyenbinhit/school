@@ -19,7 +19,7 @@
         </div>
 
         <div class="row justify-content-lg-center">
-            <div class="col-lg-10">
+            <div class="col-lg-12">
                 <!-- Profile Cover -->
                 <div class="profile-cover">
                     <div class="profile-cover-img-wrapper">
@@ -36,7 +36,7 @@
                     </label>
                     <!-- End Avatar -->
 
-                    <h1 class="page-header-title" style="text-transform: capitalize;"><?php echo $data['course']->course_name ?><i class="tio-verified tio-lg text-primary" data-toggle="tooltip" data-placement="top" title="Top endorsed"></i></h1>
+                    <h1 class="page-header-title" style="text-transform: capitalize;">Course: <?php echo $data['course']->course_name ?> <i class="tio-verified tio-lg text-primary" data-toggle="tooltip" data-placement="top" title="Top endorsed"></i></h1>
                     <h2>Subjects: <?php echo $data['course_categorys']->category_name ?></h2>
                 </div>
                 <!-- End Profile Header -->
@@ -108,10 +108,10 @@
                                     <thead class="thead-light">
                                         <tr class="text-center">
                                             <th>Trainee name</th>
+                                            <th>Trainee age</th>
                                             <th>Trainee sex</th>
                                             <th>Trainee email</th>
                                             <th>Trainee phone</th>
-                                            <th>Trainee address</th>
                                             <th>Action</th>
                                             <th></th>
                                         </tr>
@@ -123,10 +123,10 @@
                                         ?>
                                                 <tr class="text-center">
                                                     <td class="h5"><?php echo $value->trainee_name ?></td>
-                                                    <td class="h5"><?php echo $value->trainee_sex ?></td>
+                                                    <td><?php echo $value->age ?></td>
+                                                    <td class="h5"><?php echo $value->trainee_sex == 1 ? 'Female' : 'Male' ?></td>
                                                     <td class="h5"><?php echo $value->trainee_email ?></td>
                                                     <td><?php echo $value->trainee_phone ?></td>
-                                                    <td><?php echo $value->trainee_address ?></td>
                                                     <td>
                                                         <?php if ($_SESSION['level'] == 0 || $_SESSION['level'] == 1) : ?>
                                                             <a class="btn btn-sm btn-soft-danger" href="<?php echo SITE_URL ?>index.php?controller=course&action=deleteTrainee&id=<?php echo $value->id ?>">

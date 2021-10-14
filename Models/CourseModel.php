@@ -61,7 +61,12 @@ class CourseModel extends Database
     // tìm kiếm
     public function fetchSearch($name)
     {
-        $sql = " SELECT * FROM $this->table WHERE course_name LIKE '%$name%' ORDER BY id DESC";
+        $sql = "SELECT $this->table.id, $this->table.course_categorys_id, $this->table.course_name, $this->table.course_description, $this->table.end_date,
+                course_categorys.category_name, course_categorys.category_description
+                FROM $this->table 
+                INNER JOIN course_categorys ON $this->table.course_categorys_id = course_categorys.id
+                WHERE $this->table.course_name LIKE '%$name%'
+                ORDER BY $this->table.id DESC";
 
         $stmt = $this->conn->prepare($sql);
 
@@ -125,14 +130,69 @@ class CourseModel extends Database
         return $course;
     }
 
+    //update
+    public function fetchUpdate(array $data)
+    {
+        $dataBindSql = [];
+        
+        // sql update
+        $sqlUpdate = "UPDATE $this->table SET";
+
+        // update name
+        if (isset($data["course_category_id"])) {
+            $sqlUpdate .= "`course_categorys_id` = ?";
+            $dataBindSql[] = $data["course_category_id"];
+        }
+
+        // update name
+        if (isset($data["course_name"])) {
+            $sqlUpdate .= ",`course_name` = ?";
+            $dataBindSql[] = $data["course_name"];
+        }
+
+        // update 
+        if (isset($data["description"])) {
+            $sqlUpdate .= ",`course_description` = ?";
+            $dataBindSql[] = $data["description"];
+        }
+
+        // update 
+        if (isset($data["end_date"])) {
+            $sqlUpdate .= ",`end_date` = ?";
+            $dataBindSql[] = $data["end_date"];
+        }
+
+
+        // update 
+        if (isset($data["id"])) {
+            $sqlUpdate .= "WHERE `id` = ?";
+            $dataBindSql[] = $data["id"];
+        }
+
+        $stmtInsert = $this->conn->prepare($sqlUpdate);
+        
+        // truyền cho ->execute là 1 mảng chỉ số
+        $resultUpdate = $stmtInsert->execute($dataBindSql);
+
+        // output
+        return $resultUpdate;
+    }
+
     // Delete
     public function fetchDelete($id)
     {
         $sqlDelete = "DELETE FROM $this->table WHERE `id` = ?";
-
         $stmtDelete = $this->conn->prepare($sqlDelete);
-
         $resultDelete = $stmtDelete->execute([$id]);
+
+
+        $sqlUpdateTrainer = "UPDATE trainer SET course_id = 0 WHERE course_id = ? ";
+        $stmtUpdateTrainer = $this->conn->prepare($sqlUpdateTrainer);
+        $resultUpdateTrainer = $stmtUpdateTrainer->execute([$id]);
+
+        $sqlUpdateTrainee = "UPDATE trainee SET course_id = 0 WHERE course_id = ? ";
+        $stmtUpdateTrainee = $this->conn->prepare($sqlUpdateTrainee);
+        $resultUpdateTrainee = $stmtUpdateTrainee->execute([$id]);
 
         // output
         return $resultDelete;

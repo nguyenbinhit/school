@@ -127,4 +127,84 @@ class CourseController
 
         include_once "Views/Course/edit.php";
     }
+
+
+    public function update()
+    {
+        $courseModel = new CourseModel();
+
+        $data = [];
+
+        $data['course_category_id'] = postInput('course_category_id');
+        $data['course_name'] = postInput('course_name');
+        $data['description'] = postInput('description');
+        $data['end_date'] = postInput('end_date');
+        $data['id'] = postInput('id');
+
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+            $error = [];
+
+            if (postInput('course_category_id') == '') {
+                $_SESSION['error_course_category_id'] = $error['course_category_id'] = " Please choose a class name ";
+
+                $domain =  SITE_URL . "index.php?controller=course&action=edit";
+                header("Location: $domain");
+                exit;
+            }
+
+
+            if (postInput('course_name') == '') {
+                $_SESSION['error_course_name'] = $error['course_name'] = " Please enter the course name ";
+
+                $domain =  SITE_URL . "index.php?controller=course&action=edit";
+                header("Location: $domain");
+                exit;
+            } 
+
+            if (postInput('description') == '') {
+                $_SESSION['error_course_description'] = $error['description'] = " Please enter a description of the course ";
+
+                $domain =  SITE_URL . "index.php?controller=course&action=edit";
+                header("Location: $domain");
+                exit;
+            }
+
+            //error trống có nghĩa ko có lỗi
+            if (empty($error)) {
+
+                $courseModel->fetchUpdate($data);
+
+                if ($courseModel) {
+                    $_SESSION['success'] = " Successfully added new ";
+
+                    $domain =  SITE_URL . "index.php?controller=course&action=index";
+                    header("Location: $domain");
+                    exit;
+                } else {
+                    $_SESSION['error'] = " Add new failure ";
+
+                    $domain =  SITE_URL . "index.php?controller=course&action=create";
+                    header("Location: $domain");
+                    exit;
+                }
+            }
+        }
+    }
+
+    public function delete()
+    {
+        $id = isset($_GET["id"]) ? (int) $_GET["id"] : 0;
+        // khởi tạo model
+        $courseModel = new CourseModel();
+
+        // lấy data từ model
+        $course = $courseModel->fetchDelete($id);
+
+        $_SESSION['success'] = " Record delete successful ";
+
+        $domain =  SITE_URL . "index.php?controller=course&action=index";
+        header("Location: $domain");
+        exit;
+    }
 }

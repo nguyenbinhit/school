@@ -19,7 +19,7 @@
         </div>
 
         <!-- Step Form -->
-        <form name="themts" class="js-step-form py-md-5" action="<?php echo SITE_URL ?>index.php?controller=course&action=store" method="POST">
+        <form name="themts" class="js-step-form py-md-5" action="<?php echo SITE_URL ?>index.php?controller=course&action=update" method="POST">
             <div class="row justify-content-lg-center">
                 <div class="col-lg-8">
                     <!-- Content Step Form -->
@@ -28,7 +28,7 @@
                         <div id="addUserStepProfile" class="card card-lg active">
                             <!-- Body -->
                             <div class="card-body">
-
+                                <input type="hidden" class="form-control" name="id" id="id" value="<?php echo $course->id ?>">
                                 <!-- Form Group -->
                                 <div class="row form-group">
                                     <label for="firstNameLabel" class="col-sm-3 col-form-label input-label">Course name</label>
@@ -54,7 +54,9 @@
                                         <select class="form-control col-md-8" name="course_category_id">
                                             <option value=""> - Please select a course - </option>
                                             <?php foreach ($courseCategories as $item) : ?>
-                                                <option value="<?php echo $item->id ?>" <?php echo $course['course_categorys_id'] == $item['id'] ? "selected = 'selected'" : '' ?> ><?php echo $item->category_name ?></option>
+                                                <option value="<?php echo $item->id ?>" <?php echo $course->course_categorys_id == $item->id ? 'selected' : '' ?>>
+                                                    <?php echo $item->category_name ?>
+                                                </option>
                                             <?php endforeach ?>
                                         </select>
 
