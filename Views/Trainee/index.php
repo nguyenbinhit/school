@@ -9,17 +9,17 @@
                 <div class="col-sm mb-2 mb-sm-0">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb breadcrumb-no-gutter">
-                            <li class="breadcrumb-item"><a class="breadcrumb-link" href="<?php echo SITE_URL ?>index.php?controller=courseCategory&action=index">Course Category</a></li>
+                            <li class="breadcrumb-item"><a class="breadcrumb-link" href="<?php echo SITE_URL ?>index.php?controller=trainee&action=index">Trainee</a></li>
                             <li class="breadcrumb-item active" aria-current="page">All</li>
                         </ol>
                     </nav>
 
-                    <h1 class="page-header-title">Course Category</h1>
+                    <h1 class="page-header-title">Trainee</h1>
                 </div>
 
                 <?php if ($_SESSION['level'] == 1) : ?>
                     <div class="col-sm-auto">
-                        <a class="btn btn-primary" href="<?php echo SITE_URL ?>index.php?controller=courseCategory&action=create">
+                        <a class="btn btn-primary" href="<?php echo SITE_URL ?>index.php?controller=trainee&action=create">
                             <i class="tio-user-add mr-1"></i> Add new
                         </a>
                     </div>
@@ -48,8 +48,8 @@
                                         <i class="tio-search"></i>
                                     </div>
                                 </div>
-                                <input type="hidden" name="controller" value="courseCategory" />
-                                <input type="text" class="form-control" placeholder="Search course category" name="keyword">
+                                <input type="hidden" name="controller" value="trainee" />
+                                <input type="text" class="form-control" placeholder="Search trainee" name="keyword">
                             </div>
                             <input type="hidden" name="action" value="index" />
                             <!-- End Search -->
@@ -66,8 +66,12 @@
                     <thead class="thead-light">
                         <tr class="text-center">
                             <th>ID</th>
-                            <th>Subjects title</th>
-                            <th>Subjects description</th>
+                            <th>Name</th>
+                            <th>Age</th>
+                            <th>Sex</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Course</th>
                             <th>Action</th>
                             <th></th>
                         </tr>
@@ -75,22 +79,23 @@
 
                     <tbody>
                         <?php
-                        if (is_array($courseCategories) && !empty($courseCategories)) :
-                            foreach ($courseCategories as $key => $value) :
+                        if (is_array($users) && !empty($users)) :
+                            foreach ($users as $keyUser => $user) :
                         ?>
                                 <tr class="text-center">
-                                    <td><?php echo $value->id ?></td>
-                                    <td class="h5"><?php echo $value->category_name ?></td>
-                                    <td><?php echo $value->category_description ?></td>
+                                    <td><?php echo $user->id ?></td>
+                                    <td class="h5"><?php echo $user->trainee_name ?></td>
+                                    <td><?php echo $user->age ?></td>
+                                    <td><?php echo $user->trainee_sex == 1 ? 'Female' : 'Male' ?></td>
+                                    <td><?php echo $user->trainee_email ?></td>
+                                    <td><?php echo $user->trainee_phone ?></span></td>
+                                    <td><?php echo $user->course_id == 0 ? 'No class yet' : $user->course_name ?></td>
                                     <td>
                                         <?php if ($_SESSION['level'] == 1) : ?>
-                                            <a class="btn btn-sm btn-soft-info" href="<?php echo SITE_URL ?>index.php?controller=courseCategory&action=edit&id=<?php echo $value->id ?>">
+                                            <a class="btn btn-sm btn-soft-info" href="<?php echo SITE_URL ?>index.php?controller=trainee&action=edit&id=<?php echo $user->id ?>">
                                                 <i class="tio-edit"></i> Edit
                                             </a>
-                                        <?php endif; ?>
-
-                                        <?php if ($_SESSION['level'] == 1) : ?>
-                                            <a class="btn btn-sm btn-soft-danger" href="<?php echo SITE_URL ?>index.php?controller=courseCategory&action=delete&id=<?php echo $value->id ?>">
+                                            <a class="btn btn-sm btn-soft-danger" href="<?php echo SITE_URL ?>index.php?controller=trainee&action=delete&id=<?php echo $user->id ?>">
                                                 <i class="tio-delete-outlined"></i> Delete
                                             </a>
                                         <?php endif; ?>

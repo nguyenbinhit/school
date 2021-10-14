@@ -37,7 +37,11 @@ class TraineeModel extends Database
     // Lấy ra tất cả các bản ghi
     public function fetchAll()
     {
-        $sqlSelect = "SELECT * FROM $this->table ORDER BY id DESC";
+        $sqlSelect = "SELECT $this->table.id, $this->table.course_id, $this->table.trainee_name, $this->table.trainee_email, $this->table.trainee_sex,
+                        $this->table.trainee_phone, $this->table.age, course.course_name
+                        FROM $this->table 
+                        INNER JOIN course
+                        ORDER BY $this->table.id DESC ";
 
         $stmt = $this->conn->prepare($sqlSelect);
 
@@ -71,7 +75,12 @@ class TraineeModel extends Database
     // tìm kiếm
     public function fetchSearch($name)
     {
-        $sql = " SELECT * FROM $this->table WHERE trainee_name LIKE '%$name%' OR age LIKE '%$name%' ORDER BY id DESC";
+        $sql = " SELECT $this->table.id, $this->table.course_id, $this->table.trainee_name, $this->table.trainee_email, $this->table.trainee_sex,
+                    $this->table.trainee_phone, $this->table.age, course.course_name
+                    FROM $this->table 
+                    INNER JOIN course ON $this->table.course_id = course.id 
+                    WHERE $this->table.trainee_name LIKE '%$name%' OR $this->table.age LIKE '%$name%' 
+                    ORDER BY id DESC";
 
         $stmt = $this->conn->prepare($sql);
 
@@ -100,6 +109,71 @@ class TraineeModel extends Database
         return $user;
     }
 
+    //update
+    public function fetchUpdate(array $data)
+    {
+        $dataBindSql = [];
+
+        // sql update
+        $sqlUpdate = "UPDATE $this->table SET";
+
+        // update name
+        if (isset($data["name"])) {
+            $sqlUpdate .= "`trainee_name` = ?";
+            $dataBindSql[] = $data["name"];
+        }
+
+        // update password
+        if (isset($data["password"])) {
+            $sqlUpdate .= ", `trainee_password` = ?";
+            $dataBindSql[] = $data["password"];
+        }
+
+        // update email
+        if (isset($data["email"])) {
+            $sqlUpdate .= ",`trainee_email` = ?";
+            $dataBindSql[] = $data["email"];
+        }
+
+        // update phone
+        if (isset($data["phone"])) {
+            $sqlUpdate .= ",`trainee_phone` = ?";
+            $dataBindSql[] = $data["phone"];
+        }
+
+        // update 
+        if (isset($data["sexRadio"])) {
+            $sqlUpdate .= ",`trainee_sex` = ?";
+            $dataBindSql[] = $data["sexRadio"];
+        }
+
+        // update 
+        if (isset($data["age"])) {
+            $sqlUpdate .= ",`age` = ?";
+            $dataBindSql[] = $data["age"];
+        }
+
+        // update 
+        if (isset($data["course_id"])) {
+            $sqlUpdate .= ",`course_id` = ?";
+            $dataBindSql[] = $data["course_id"];
+        }
+
+        // update 
+        if (isset($data["id"])) {
+            $sqlUpdate .= "WHERE `id` = ?";
+            $dataBindSql[] = $data["id"];
+        }
+
+        $stmtInsert = $this->conn->prepare($sqlUpdate);
+
+        // truyền cho ->execute là 1 mảng chỉ số
+        $resultUpdate = $stmtInsert->execute($dataBindSql);
+
+        // output
+        return $resultUpdate;
+    }
+
     // Delete
     public function fetchDelete($id)
     {
@@ -111,5 +185,18 @@ class TraineeModel extends Database
 
         // output
         return $resultDelete;
+    }
+
+    // Update course
+    public function fetchDeleteCourse($id)
+    {
+        $sqlUpdate = "UPDATE $this->table SET course_id = 0 WHERE `id` = ?";
+
+        $stmtDelete = $this->conn->prepare($sqlUpdate);
+
+        $resultDeleteCourse = $stmtDelete->execute([$id]);
+
+        // output
+        return $resultDeleteCourse;
     }
 }

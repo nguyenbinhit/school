@@ -17,7 +17,7 @@
                     <h1 class="page-header-title">Course</h1>
                 </div>
 
-                <?php if ($_SESSION['level'] == 0 || $_SESSION['level'] == 1) : ?>
+                <?php if ($_SESSION['level'] == 1) : ?>
                     <div class="col-sm-auto">
                         <a class="btn btn-primary" href="<?php echo SITE_URL ?>index.php?controller=course&action=create">
                             <i class="tio-user-add mr-1"></i> Add new
@@ -90,13 +90,13 @@
                                         <a class="btn btn-sm btn-soft-primary" href="<?php echo SITE_URL ?>index.php?controller=course&action=detail&id=<?php echo $value->id ?>">
                                             <i class="tio-direction"></i> Detail
                                         </a>
-                                        <?php if ($_SESSION['level'] == 0 || $_SESSION['level'] == 1) : ?>
+                                        <?php if ($_SESSION['level'] == 1) : ?>
                                             <a class="btn btn-sm btn-soft-info" href="<?php echo SITE_URL ?>index.php?controller=course&action=edit&id=<?php echo $value->id ?>">
                                                 <i class="tio-edit"></i> Edit
                                             </a>
                                         <?php endif; ?>
 
-                                        <?php if ($_SESSION['level'] == 0 || $_SESSION['level'] == 1) : ?>
+                                        <?php if ($_SESSION['level'] == 1) : ?>
                                             <a class="btn btn-sm btn-soft-danger" href="<?php echo SITE_URL ?>index.php?controller=course&action=delete&id=<?php echo $value->id ?>">
                                                 <i class="tio-delete-outlined"></i> Delete
                                             </a>

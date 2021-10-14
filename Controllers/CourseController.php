@@ -176,13 +176,13 @@ class CourseController
                 $courseModel->fetchUpdate($data);
 
                 if ($courseModel) {
-                    $_SESSION['success'] = " Successfully added new ";
+                    $_SESSION['success'] = " Successfully update ";
 
                     $domain =  SITE_URL . "index.php?controller=course&action=index";
                     header("Location: $domain");
                     exit;
                 } else {
-                    $_SESSION['error'] = " Add new failure ";
+                    $_SESSION['error'] = " Update failure ";
 
                     $domain =  SITE_URL . "index.php?controller=course&action=create";
                     header("Location: $domain");
@@ -202,6 +202,21 @@ class CourseController
         $course = $courseModel->fetchDelete($id);
 
         $_SESSION['success'] = " Record delete successful ";
+
+        $domain =  SITE_URL . "index.php?controller=course&action=index";
+        header("Location: $domain");
+        exit;
+    }
+
+    public function deleteTrainee()
+    {
+        $id = isset($_GET["id"]) ? (int) $_GET["id"] : 0;
+
+        $course_id = isset($_GET["course_id"]) ? (int) $_GET["course_id"] : 0;
+        // khởi tạo model
+        $trainee = new TraineeModel();
+        // lấy data từ model
+        $user = $trainee->fetchDeleteCourse($id);
 
         $domain =  SITE_URL . "index.php?controller=course&action=index";
         header("Location: $domain");

@@ -24,7 +24,7 @@
 
                             <div class="row align-items-center gx-2 mb-1 mt-5">
                                 <div class="col-6">
-                                    <span class="card-title h1">72,540</span>
+                                    <span class="card-title h1"><?php echo count($trainingStaff) ?></span>
                                 </div>
                             </div>
                             <!-- End Row -->
@@ -41,7 +41,7 @@
 
                             <div class="row align-items-center gx-2 mb-1 mt-5">
                                 <div class="col-6">
-                                    <span class="card-title h1">29.4%</span>
+                                    <span class="card-title h1"><?php echo count($trainer) ?></span>
                                 </div>
                             </div>
                             <!-- End Row -->
@@ -58,7 +58,7 @@
 
                             <div class="row align-items-center gx-2 mb-1 mt-5">
                                 <div class="col-6">
-                                    <span class="card-title h1">56.8%</span>
+                                    <span class="card-title h1"><?php echo count($trainee) ?></span>
                                 </div>
                             </div>
                             <!-- End Row -->
@@ -75,7 +75,7 @@
 
                             <div class="row align-items-center gx-2 mb-1 mt-5">
                                 <div class="col-6">
-                                    <span class="card-title h1">56.8%</span>
+                                    <span class="card-title h1"><?php echo count($course) ?></span>
                                 </div>
                             </div>
                             <!-- End Row -->

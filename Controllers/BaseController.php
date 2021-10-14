@@ -9,6 +9,18 @@ class BaseController
 
     public function dashboard()
     {
+        $trainingStaffModel = new TrainingStaffModel();
+        $trainingStaff = $trainingStaffModel->getAll();
+
+        $trainerModel = new TrainerModel();
+        $trainer = $trainerModel->fetchAll();
+
+        $traineeModel = new TraineeModel();
+        $trainee = $traineeModel->fetchAll();
+
+        $courseModel = new CourseModel();
+        $course = $courseModel->fetchAll();
+
         include_once "Views/dashboard.php";
     }
 

@@ -159,7 +159,7 @@
                             </li>
 
                             <!-- Training staff -->
-                            <?php if ($_SESSION['level'] == 0 || $_SESSION['level'] == 1) : ?>
+                            <?php if (($_SESSION['level'] == 0 || $_SESSION['level'] == 1) && $_SESSION['level'] != 3) : ?>
                                 <li class="nav-item ">
                                     <a class="js-nav-tooltip-link nav-link " href="<?php echo SITE_URL ?>index.php?controller=trainingStaff&action=index" title="Management staff">
                                         <i class="tio-pages-outlined nav-icon"></i>
@@ -170,9 +170,9 @@
                             <!-- End Training staff -->
 
                             <!-- Trainer  -->
-                            <?php if ($_SESSION['level'] == 0 || $_SESSION['level'] == 1 || $_SESSION['level'] == 2) : ?>
+                            <?php if (($_SESSION['level'] == 0 || $_SESSION['level'] == 1 || $_SESSION['level'] == 2) && $_SESSION['level'] != 3) : ?>
                                 <li class="nav-item ">
-                                    <a class="js-nav-tooltip-link nav-link " href="<?php echo SITE_URL ?>index.php?controller=trainingStaff&action=index" title="Trainer">
+                                    <a class="js-nav-tooltip-link nav-link " href="<?php echo SITE_URL ?>index.php?controller=trainer&action=index" title="Trainer">
                                         <i class="tio-pages-outlined nav-icon"></i>
                                         <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Trainer</span>
                                     </a>
@@ -182,7 +182,7 @@
 
                             <!-- Trainee  -->
                             <li class="nav-item ">
-                                <a class="js-nav-tooltip-link nav-link " href="<?php echo SITE_URL ?>index.php?controller=trainingStaff&action=index" title="Trainee">
+                                <a class="js-nav-tooltip-link nav-link " href="<?php echo SITE_URL ?>index.php?controller=trainee&action=index" title="Trainee">
                                     <i class="tio-pages-outlined nav-icon"></i>
                                     <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Trainee</span>
                                 </a>

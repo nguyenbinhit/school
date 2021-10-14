@@ -70,7 +70,7 @@
 
                                     <li>
                                         <i class="tio-user-outlined nav-icon"></i>
-                                        <?php echo $data['trainer']->trainer_name ?>
+                                        <?php isset($data['trainer']->trainer_name); echo $data['trainer']->trainer_name ?>
                                     </li>
 
                                     <li class="pt-2 pb-0">
@@ -79,7 +79,7 @@
 
                                     <li>
                                         <i class="tio-online nav-icon"></i>
-                                        <?php echo $data['trainer']->trainer_email ?>
+                                        <?php isset($data['trainer']->trainer_email); echo $data['trainer']->trainer_email ?>
                                     </li>
 
                                     <li class="pt-2 pb-0">
@@ -88,7 +88,7 @@
 
                                     <li>
                                         <i class="tio-android-phone-vs nav-icon"></i>
-                                        <?php echo $data['trainer']->trainer_phone ?>
+                                        <?php isset($data['trainer']->trainer_phone); echo $data['trainer']->trainer_phone ?>
                                     </li>
                                 </ul>
                             </div>
@@ -102,7 +102,7 @@
                             <div class="card-header">
                                 <h2 class="card-header-title h5">Trainee</h2>
                             </div>
-
+                            
                             <div class="card-body card-body-height">
                                 <table class="table table-lg table-borderless table-thead-bordered table-nowrap table-align-middle card-table">
                                     <thead class="thead-light">
@@ -119,7 +119,8 @@
 
                                     <tbody>
                                         <?php
-                                            foreach ($data['trainee'] as $key => $value) :
+                                            if (!is_object($data['trainee']) && !empty($data['trainee'])) :
+                                                foreach ($data['trainee'] as $key => $value) :
                                         ?>
                                                 <tr class="text-center">
                                                     <td class="h5"><?php echo $value->trainee_name ?></td>
@@ -128,14 +129,14 @@
                                                     <td class="h5"><?php echo $value->trainee_email ?></td>
                                                     <td><?php echo $value->trainee_phone ?></td>
                                                     <td>
-                                                        <?php if ($_SESSION['level'] == 0 || $_SESSION['level'] == 1) : ?>
+                                                        <?php if ($_SESSION['level'] == 1) : ?>
                                                             <a class="btn btn-sm btn-soft-danger" href="<?php echo SITE_URL ?>index.php?controller=course&action=deleteTrainee&id=<?php echo $value->id ?>">
                                                                 <i class="tio-delete-outlined"></i> Delete
                                                             </a>
                                                         <?php endif; ?>
                                                     </td>
                                                 </tr>
-                                        <?php endforeach; ?>
+                                        <?php endforeach; endif; ?>
                                     </tbody>
                                 </table>
                             </div>
