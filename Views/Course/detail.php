@@ -129,7 +129,7 @@
                                                     <td><?php echo $value->trainee_address ?></td>
                                                     <td>
                                                         <?php if ($_SESSION['level'] == 0 || $_SESSION['level'] == 1) : ?>
-                                                            <a class="btn btn-sm btn-soft-danger" href="<?php echo SITE_URL ?>index.php?controller=course&action=delete&id=<?php echo $value->id ?>">
+                                                            <a class="btn btn-sm btn-soft-danger" href="<?php echo SITE_URL ?>index.php?controller=course&action=deleteTrainee&id=<?php echo $value->id ?>">
                                                                 <i class="tio-delete-outlined"></i> Delete
                                                             </a>
                                                         <?php endif; ?>
