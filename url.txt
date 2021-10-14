@@ -51,3 +51,23 @@ CÁC URL
         delete:
             http://localhost/school/index.php?controller=courseCategory&action=delete&id=$id
 
+
+    *course*
+        index: 
+            http://localhost/school/index.php?controller=course&action=index
+        
+        search:
+            http://localhost/school/index.php?controller=course&keyword=?&action=index
+
+        create:
+            http://localhost/school/index.php?controller=course&action=create
+
+        detail:
+            http://localhost/school/index.php?controller=course&action=detail&id=$id
+
+        edit:
+            http://localhost/school/index.php?controller=course&action=edit&id=$id
+        
+        delete:
+            http://localhost/school/index.php?controller=course&action=delete&id=$id
+
