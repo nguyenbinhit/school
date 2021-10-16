@@ -97,7 +97,7 @@
             <div class="js-mega-menu navbar-nav-wrap">
                 <div class="navbar-brand-wrapper">
                     <!-- Logo -->
-                    <a class="navbar-brand" href="index.html" aria-label="Front">
+                    <a class="navbar-brand" aria-label="Front">
                         <img class="navbar-brand-logo" src="<?php echo assets_css() ?>dashboard\svg\logos\logo.svg" alt="Logo">
                     </a>
                     <!-- End Logo -->
@@ -128,7 +128,7 @@
                 <div class="navbar-vertical-footer-offset">
                     <div class="navbar-brand-wrapper justify-content-between">
                         <!-- Logo -->
-                        <a class="navbar-brand" href="index.html" aria-label="Front">
+                        <a class="navbar-brand" aria-label="Front">
                             <img class="navbar-brand-logo" src="<?php echo assets_css() ?>dashboard\svg\logos\logo.svg" alt="Logo">
                             <img class="navbar-brand-logo-mini" src="<?php echo assets_css() ?>dashboard\svg\logos\logo-short.svg" alt="Logo">
                         </a>
