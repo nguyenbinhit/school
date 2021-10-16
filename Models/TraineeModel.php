@@ -78,7 +78,7 @@ class TraineeModel extends Database
         $sql = " SELECT $this->table.id, $this->table.course_id, $this->table.trainee_name, $this->table.trainee_email, $this->table.trainee_sex,
                     $this->table.trainee_phone, $this->table.age, course.course_name
                     FROM $this->table 
-                    INNER JOIN course ON $this->table.course_id = course.id 
+                    INNER JOIN course
                     WHERE $this->table.trainee_name LIKE '%$name%' OR $this->table.age LIKE '%$name%' 
                     ORDER BY id DESC";
 
