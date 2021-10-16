@@ -97,7 +97,7 @@
                                             <i class="tio-direction"></i> Detail
                                         </a>
 
-                                        <?php if ($_SESSION['admin_email'] == $user->training_staff_email) : ?>
+                                        <?php if ($_SESSION['level'] == 0 || $_SESSION['admin_email'] == $user->training_staff_email) : ?>
                                             <a class="btn btn-sm btn-soft-info" href="<?php echo SITE_URL ?>index.php?controller=trainingStaff&action=edit&id=<?php echo $user->id ?>">
                                                 <i class="tio-edit"></i> Edit
                                             </a>

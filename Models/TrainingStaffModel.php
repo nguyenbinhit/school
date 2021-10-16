@@ -141,6 +141,11 @@ class TrainingStaffModel extends Database
             $dataBindSql[] = $data["levelRadio"];
         }
 
+        if (isset($data["id"])) {
+            $sqlUpdate .= "WHERE `id` = ?";
+            $dataBindSql[] = $data["id"];
+        }
+
         $stmtInsert = $this->conn->prepare($sqlUpdate);
         
         // truyền cho ->execute là 1 mảng chỉ số

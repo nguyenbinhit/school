@@ -185,6 +185,7 @@ class TrainingStaffController
         $data['email'] = postInput('email');
         $data['phone'] = postInput('phone');
         $data['levelRadio'] = postInput('levelRadio');
+        $data['id'] = postInput('id');
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
 

@@ -28,6 +28,7 @@
                         <div id="addUserStepProfile" class="card card-lg active">
                             <!-- Body -->
                             <div class="card-body">
+                                <input type="hidden" class="form-control" name="id" id="id" value="<?php echo $user->id ?>">
 
                                 <!-- Form Group -->
                                 <div class="row form-group">
