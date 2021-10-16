@@ -35,7 +35,7 @@
                                     <label for="firstNameLabel" class="col-sm-3 col-form-label input-label">Full name</label>
 
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" name="name" id="name" value="<?php echo isset($user->trainee_name) ? $user->trainee_name : "" ?>">
+                                        <input type="text" class="form-control" name="name" id="name" value="<?php echo $user->trainee_name ?>">
                                         <?php if (isset($_SESSION['error_name'])) : ?>
                                             <p class="text-danger">
                                                 <?php echo $_SESSION['error_name'];
@@ -73,7 +73,7 @@
                                     <label for="ageLabel" class="col-sm-3 col-form-label input-label">Age</label>
 
                                     <div class="col-sm-9">
-                                        <input type="number" class="form-control" name="age" id="ageLabel" value="<?php echo isset($user->age) ? $user->age : "" ?>">
+                                        <input type="number" class="form-control" name="age" id="ageLabel" value="<?php echo $user->age ?>">
                                         <?php if (isset($_SESSION['error_age'])) : ?>
                                             <p class="text-danger">
                                                 <?php echo $_SESSION['error_age'];
@@ -89,7 +89,7 @@
                                     <label for="emailLabel" class="col-sm-3 col-form-label input-label">Email</label>
 
                                     <div class="col-sm-9">
-                                        <input type="email" class="form-control" name="email" id="emailLabel" value="<?php echo isset($user->trainee_email) ? $user->trainee_email : "" ?>">
+                                        <input type="email" class="form-control" name="email" id="emailLabel" value="<?php echo $user->trainee_email ?>">
                                         <?php if (isset($_SESSION['error_email'])) : ?>
                                             <p class="text-danger">
                                                 <?php echo $_SESSION['error_email'];
@@ -120,7 +120,7 @@
                                     <label for="phoneLabel" class="col-sm-3 col-form-label input-label">Phone</label>
 
                                     <div class="col-sm-9">
-                                        <input type="number" class="form-control" name="phone" id="phone" value="<?php echo isset($user->trainee_phone) ? $user->trainee_phone : "" ?>">
+                                        <input type="number" class="form-control" name="phone" id="phone" value="<?php echo $user->trainee_phone ?>">
                                         <?php if (isset($_SESSION['error_phone'])) : ?>
                                             <p class="text-danger">
                                                 <?php echo $_SESSION['error_phone'];
@@ -140,7 +140,7 @@
                                             <!-- Custom Radio -->
                                             <div class="form-control">
                                                 <div class="custom-control custom-radio">
-                                                    <?php $radio0 = ($user->trainee_sex == 0) ? "checked" : "";  ?>
+                                                    <?php $radio0 = (isset($user->trainee_sex) == 0) ? "checked" : "";  ?>
                                                     <input type="radio" class="custom-control-input" name="sexRadio" id="sexRadio1" value="0" <?php echo $radio0 ?>>
                                                     <label class="custom-control-label" for="sexRadio1">Male</label>
                                                 </div>
@@ -150,7 +150,7 @@
                                             <!-- Custom Radio -->
                                             <div class="form-control">
                                                 <div class="custom-control custom-radio">
-                                                    <?php $radio1 = ($user->trainee_sex == 1) ? "checked" : "";  ?>    
+                                                    <?php $radio1 = (isset($user->trainee_sex) == 1) ? "checked" : "";  ?>    
                                                     <input type="radio" class="custom-control-input" name="sexRadio" id="sexRadio2" value="1" <?php echo $radio1 ?>>
                                                     <label class="custom-control-label" for="sexRadio2">Female</label>
                                                 </div>

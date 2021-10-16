@@ -195,7 +195,7 @@ class TraineeController
             if (postInput('name') == '') {
                 $_SESSION['error_name'] = $error['name'] = " Please enter your full first and last name ";
 
-                $domain =  SITE_URL . "index.php?controller=trainee&action=edit";
+                $domain =  SITE_URL . "index.php?controller=trainee&action=edit&id=".$data['id'];
                 header("Location: $domain");
                 exit;
             }
@@ -203,7 +203,7 @@ class TraineeController
             if (postInput('email') == '') {
                 $_SESSION['error_email'] = $error['email'] = " Please enter your email ";
 
-                $domain =  SITE_URL . "index.php?controller=trainee&action=edit";
+                $domain =  SITE_URL . "index.php?controller=trainee&action=edit&id=".$data['id'];
                 header("Location: $domain");
                 exit;
             }
@@ -211,7 +211,7 @@ class TraineeController
             if (postInput('phone') == '') {
                 $_SESSION['error_phone'] = $error['phone'] = " Please enter your phone number ";
 
-                $domain =  SITE_URL . "index.php?controller=trainee&action=edit";
+                $domain =  SITE_URL . "index.php?controller=trainee&action=edit&id=".$data['id'];
                 header("Location: $domain");
                 exit;
             }
@@ -219,7 +219,7 @@ class TraineeController
             if (postInput('age') == '') {
                 $_SESSION['error_age'] = $error['age'] = " Please enter your age ";
 
-                $domain =  SITE_URL . "index.php?controller=trainee&action=edit";
+                $domain =  SITE_URL . "index.php?controller=trainee&action=edit&id=".$data['id'];
                 header("Location: $domain");
                 exit;
             }
@@ -227,7 +227,7 @@ class TraineeController
             if (postInput('password') == '') {
                 $_SESSION['error_password'] = $error['password'] = " Please enter your password ";
 
-                $domain =  SITE_URL . "index.php?controller=trainee&action=edit";
+                $domain =  SITE_URL . "index.php?controller=trainee&action=edit&id=".$data['id'];
                 header("Location: $domain");
                 exit;
             }
@@ -235,7 +235,7 @@ class TraineeController
             if (postInput('course_id') == '') {
                 $_SESSION['error_course_id'] = $error['course_id'] = " Please choose a class name ";
 
-                $domain =  SITE_URL . "index.php?controller=trainee&action=edit";
+                $domain =  SITE_URL . "index.php?controller=trainee&action=edit&id=".$data['id'];
                 header("Location: $domain");
                 exit;
             }

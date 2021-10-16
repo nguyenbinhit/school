@@ -178,4 +178,17 @@ class TrainerModel extends Database
         // output
         return $resultDelete;
     }
+
+    // Update course
+    public function fetchDeleteCourse($id)
+    {
+        $sqlUpdate = "UPDATE $this->table SET course_id = 0 WHERE `id` = ?";
+
+        $stmtDelete = $this->conn->prepare($sqlUpdate);
+
+        $resultDeleteCourse = $stmtDelete->execute([$id]);
+
+        // output
+        return $resultDeleteCourse;
+    }
 }
