@@ -195,7 +195,7 @@ class TrainingStaffController
             if (postInput('name') == '') {
                 $_SESSION['error_name'] = $error['name'] = " Please enter your full first and last name ";
 
-                $domain =  SITE_URL . "index.php?controller=trainingStaff&action=edit";
+                $domain =  SITE_URL . "index.php?controller=trainingStaff&action=edit&id=".$data['id'];
                 header("Location: $domain");
                 exit;
             }
@@ -203,7 +203,7 @@ class TrainingStaffController
             if (postInput('email') == '') {
                 $_SESSION['error_email'] = $error['email'] = " Please enter your email ";
 
-                $domain =  SITE_URL . "index.php?controller=trainingStaff&action=edit";
+                $domain =  SITE_URL . "index.php?controller=trainingStaff&action=edit&id=".$data['id'];
                 header("Location: $domain");
                 exit;
             }
@@ -211,7 +211,7 @@ class TrainingStaffController
             if (postInput('phone') == '') {
                 $_SESSION['error_phone'] = $error['phone'] = " Please enter your phone number ";
 
-                $domain =  SITE_URL . "index.php?controller=trainingStaff&action=edit";
+                $domain =  SITE_URL . "index.php?controller=trainingStaff&action=edit&id=".$data['id'];
                 header("Location: $domain");
                 exit;
             }
@@ -219,7 +219,7 @@ class TrainingStaffController
             if (postInput('password') == '') {
                 $_SESSION['error_password'] = $error['password'] = " Please enter your password ";
 
-                $domain =  SITE_URL . "index.php?controller=trainingStaff&action=edit";
+                $domain =  SITE_URL . "index.php?controller=trainingStaff&action=edit&id=".$data['id'];
                 header("Location: $domain");
                 exit;
             }

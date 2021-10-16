@@ -194,7 +194,7 @@ class TrainerController
             if (postInput('name') == '') {
                 $_SESSION['error_name'] = $error['name'] = " Please enter your full first and last name ";
 
-                $domain =  SITE_URL . "index.php?controller=trainer&action=create";
+                $domain =  SITE_URL . "index.php?controller=trainer&action=edit&id=".$data['id'];
                 header("Location: $domain");
                 exit;
             }
@@ -202,7 +202,7 @@ class TrainerController
             if (postInput('email') == '') {
                 $_SESSION['error_email'] = $error['email'] = " Please enter your email ";
 
-                $domain =  SITE_URL . "index.php?controller=trainer&action=create";
+                $domain =  SITE_URL . "index.php?controller=trainer&action=edit&id=".$data['id'];
                 header("Location: $domain");
                 exit;
             }
@@ -210,7 +210,7 @@ class TrainerController
             if (postInput('phone') == '') {
                 $_SESSION['error_phone'] = $error['phone'] = " Please enter your phone number ";
 
-                $domain =  SITE_URL . "index.php?controller=trainer&action=create";
+                $domain =  SITE_URL . "index.php?controller=trainer&action=edit&id=".$data['id'];
                 header("Location: $domain");
                 exit;
             }
@@ -218,7 +218,7 @@ class TrainerController
             if (postInput('address') == '') {
                 $_SESSION['error_address'] = $error['address'] = " Please enter your address ";
 
-                $domain =  SITE_URL . "index.php?controller=trainer&action=create";
+                $domain =  SITE_URL . "index.php?controller=trainer&action=edit&id=".$data['id'];
                 header("Location: $domain");
                 exit;
             }
@@ -226,7 +226,7 @@ class TrainerController
             if (postInput('password') == '') {
                 $_SESSION['error_password'] = $error['password'] = " Please enter your password ";
 
-                $domain =  SITE_URL . "index.php?controller=trainer&action=create";
+                $domain =  SITE_URL . "index.php?controller=trainer&action=edit&id=".$data['id'];
                 header("Location: $domain");
                 exit;
             }

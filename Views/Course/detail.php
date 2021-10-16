@@ -70,7 +70,7 @@
 
                                     <li>
                                         <i class="tio-user-outlined nav-icon"></i>
-                                        <?php isset($data['trainer']->trainer_name); echo $data['trainer']->trainer_name ?>
+                                        <?php isset($data['trainer']->trainer_name) ?  $data['trainer']->trainer_name  :  " " ?>
                                     </li>
 
                                     <li class="pt-2 pb-0">
@@ -79,7 +79,7 @@
 
                                     <li>
                                         <i class="tio-online nav-icon"></i>
-                                        <?php isset($data['trainer']->trainer_email); echo $data['trainer']->trainer_email ?>
+                                        <?php isset($data['trainer']->trainer_email) ? $data['trainer']->trainer_email : " " ?>
                                     </li>
 
                                     <li class="pt-2 pb-0">
@@ -88,7 +88,7 @@
 
                                     <li>
                                         <i class="tio-android-phone-vs nav-icon"></i>
-                                        <?php isset($data['trainer']->trainer_phone); echo $data['trainer']->trainer_phone ?>
+                                        <?php isset($data['trainer']->trainer_phone) ? $data['trainer']->trainer_phone : " " ?>
                                     </li>
                                 </ul>
                             </div>
