@@ -13,6 +13,12 @@ class TraineeController
         } else {
             // Gọi hàm
             $users = $traineeModel->fetchAll();
+
+            $ids = array_column($users, 'id');
+            $ids = array_unique($ids);
+            $users = array_filter($users, function ($key, $value) use ($ids) {
+                return in_array($value, array_keys($ids));
+            }, ARRAY_FILTER_USE_BOTH);
         }
 
         include_once "Views/Trainee/index.php";

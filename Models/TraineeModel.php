@@ -42,7 +42,7 @@ class TraineeModel extends Database
                         FROM $this->table 
                         INNER JOIN course
                         ORDER BY $this->table.id DESC ";
-
+ 
         $stmt = $this->conn->prepare($sqlSelect);
 
         $stmt->execute();

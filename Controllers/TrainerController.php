@@ -13,6 +13,12 @@ class TrainerController
         } else {
             // Gọi hàm
             $users = $trainerModel->fetchAll();
+
+            $ids = array_column($users, 'id');
+            $ids = array_unique($ids);
+            $users = array_filter($users, function ($key, $value) use ($ids) {
+                return in_array($value, array_keys($ids));
+            }, ARRAY_FILTER_USE_BOTH);
         }
 
         include_once "Views/Trainer/index.php";
