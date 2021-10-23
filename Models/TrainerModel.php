@@ -18,6 +18,21 @@ class TrainerModel extends Database
         return $login;
     }
 
+    public function fetchCount()
+    {
+        $sqlSelect = "SELECT * FROM $this->table";
+
+        $stmt = $this->conn->prepare($sqlSelect);
+
+        $stmt->execute();
+
+        $result = $stmt->setFetchMode(PDO::FETCH_OBJ);
+
+        $users = $stmt->fetchAll();
+
+        return $users;
+    }
+
     public function fetchEmail($email)
     {
         $sql = "SELECT * FROM $this->table WHERE trainer_email = ? LIMIT 1";

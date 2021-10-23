@@ -13,10 +13,10 @@ class BaseController
         $trainingStaff = $trainingStaffModel->getAll();
 
         $trainerModel = new TrainerModel();
-        $trainer = $trainerModel->fetchAll();
+        $trainer = $trainerModel->fetchCount();
 
         $traineeModel = new TraineeModel();
-        $trainee = $traineeModel->fetchAll();
+        $trainee = $traineeModel->fetchCount();
 
         $courseModel = new CourseModel();
         $course = $courseModel->fetchAll();
