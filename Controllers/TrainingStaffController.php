@@ -104,7 +104,7 @@ class TrainingStaffController
                 header("Location: $domain");
                 exit;
             } else {
-                $is_check = $trainingStaffModel->fetchEmail($data['email']);
+                $is_check = $trainingStaffModel->fetchEmail(postInput('email'));
                 if ($is_check != NULL) {
                     $_SESSION['error_email'] = $error['email'] = " Email address already exists ! ";
 
