@@ -105,7 +105,7 @@
                                     <label for="passwordLabel" class="col-sm-3 col-form-label input-label">Password</label>
 
                                     <div class="col-sm-9">
-                                        <input type="password" class="form-control" name="password" id="password">
+                                        <input type="password" class="form-control" name="password" id="password" value="<?php echo isset($user->trainee_password) ? $user->trainee_password : "" ?>">
                                         <?php if (isset($_SESSION['error_password'])) : ?>
                                             <p class="text-danger">
                                                 <?php echo $_SESSION['error_password']; unset($_SESSION['error_password']); ?>
